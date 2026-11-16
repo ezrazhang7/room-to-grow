@@ -11,7 +11,6 @@
   const usd = (v) => (bad(v) ? '—' : '$' + fmtInt(Math.round(+v)));
   const signed = (v) => (bad(v) ? '—' : (v > 0 ? '+' : '') + d3.format('.1f')(v) + '%');
   const slug = (name) => name.toLowerCase().replace(/[^a-z]+/g, '-');
-  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 
   const KIND = { rural: 'Rural', regional: 'Regional city or suburban', urban: 'Urban' };
   const KIND_COLOR = { rural: 'var(--accent)', regional: 'var(--accent-2)', urban: 'var(--accent-3)' };
@@ -21,7 +20,7 @@
     'local-capacity': 'Local staff and know-how', 'aging-stock': 'Aging homes', 'cost-burden': 'Costs against incomes',
     displacement: 'Displacement', 'construction-workforce': 'Construction workforce',
   };
-  // Cut-offs for the seven checks. Chosen for this site; each is printed on its check.
+  // Cut-offs for the issue checks. Chosen for this site; each is stated on its chip's tooltip and in the footer.
   const LIMITS = { pace: 50, homeValue: 200000, yearBuilt: 1980, mobile: 20, rentBurden: 50, growth: 5, smallHouseholds: 25000 };
   const METRIC = {
     gap_pct_hh: { label: 'Homes short per 100 households', f: one },
@@ -38,6 +37,7 @@
   const FIRST = 4;
   const row = () => S.counties.find((r) => r.fips === S.county) || null;
   const sum = (rows, k) => rows.reduce((a, r) => a + (+r[k] || 0), 0);
+  const median = (rows, k) => d3.median(rows, (r) => r[k]);
 
   // ---------- derived ----------
   function stateTotals() {
@@ -64,23 +64,22 @@
   function flagsOf(c) {
     const L = LIMITS;
     return [
-      { barriers: ['infrastructure'], label: 'Water and sewer under strain', on: c.distressed_units > 0,
-        why: num(c.distressed_units) + ' distressed water or sewer systems. Flag: 1 or more.' },
-      { barriers: ['land-and-zoning', 'construction-workforce'], label: 'Building well below need', on: c.pace_pct != null && c.pace_pct < L.pace,
-        why: 'Permits cover ' + pct0(c.pace_pct) + ' of the yearly need. Flag: under ' + L.pace + '%.' },
-      { barriers: ['financing-gap'], label: 'New homes may cost more than they sell for', on: c.median_home_value < L.homeValue,
-        why: 'Median home value ' + usd(c.median_home_value) + '. Flag: under ' + usd(L.homeValue) + '.' },
-      { barriers: ['aging-stock'], label: 'Older and manufactured homes', on: c.median_year_built <= L.yearBuilt || c.mobile_pct >= L.mobile,
-        why: 'Median home built ' + c.median_year_built + '; ' + pct(c.mobile_pct) + ' mobile homes. Flag: ' + L.yearBuilt + ' or earlier, or ' + L.mobile + '% or more.' },
-      { barriers: ['cost-burden'], label: 'Renters stretched', on: c.rent_burden_pct >= L.rentBurden,
-        why: pct(c.rent_burden_pct) + ' of renters pay 30% or more of income. Flag: ' + L.rentBurden + '% or more.' },
-      { barriers: ['displacement'], label: 'Growth pressure on renters', on: c.rural_class !== 'rural' && c.hh_growth_pct >= L.growth,
-        why: 'Households ' + signed(c.hh_growth_pct) + ' by 2029. Flag: non-rural county growing ' + L.growth + '% or more.' },
-      { barriers: ['local-capacity'], label: 'Thin local capacity', on: c.tier === 1 && c.hh_2024 < L.smallHouseholds,
-        why: 'Tier ' + c.tier + ', ' + num(c.hh_2024) + ' households. Flag: tier 1 with under ' + num(L.smallHouseholds) + '.' },
+      { barrier: 'infrastructure', label: 'Water and sewer under strain', on: c.distressed_units > 0,
+        why: num(c.distressed_units) + ' distressed water or sewer systems. Shown when 1 or more.' },
+      { barrier: 'land-and-zoning', label: 'Building well below need', on: c.pace_pct != null && c.pace_pct < L.pace,
+        why: 'Permits cover ' + pct0(c.pace_pct) + ' of the yearly need. Shown when under ' + L.pace + '%.' },
+      { barrier: 'financing-gap', label: 'New homes may cost more than they sell for', on: c.median_home_value < L.homeValue,
+        why: 'Median home value ' + usd(c.median_home_value) + '. Shown when under ' + usd(L.homeValue) + '.' },
+      { barrier: 'aging-stock', label: 'Older and manufactured homes', on: c.median_year_built <= L.yearBuilt || c.mobile_pct >= L.mobile,
+        why: 'Median home built ' + c.median_year_built + '; ' + pct(c.mobile_pct) + ' mobile homes. Shown when built ' + L.yearBuilt + ' or earlier, or ' + L.mobile + '% or more.' },
+      { barrier: 'cost-burden', label: 'Renters stretched', on: c.rent_burden_pct >= L.rentBurden,
+        why: pct(c.rent_burden_pct) + ' of renters pay 30% or more of income. Shown when ' + L.rentBurden + '% or more.' },
+      { barrier: 'displacement', label: 'Growth pressure on renters', on: c.rural_class !== 'rural' && c.hh_growth_pct >= L.growth,
+        why: 'Households ' + signed(c.hh_growth_pct) + ' by 2029. Shown for a non-rural county growing ' + L.growth + '% or more.' },
+      { barrier: 'local-capacity', label: 'Thin local capacity', on: c.tier === 1 && c.hh_2024 < L.smallHouseholds,
+        why: 'Tier ' + c.tier + ', ' + num(c.hh_2024) + ' households. Shown for tier 1 with under ' + num(L.smallHouseholds) + '.' },
     ];
   }
-  const median = (rows, k) => d3.median(rows, (r) => r[k]);
 
   // ---------- map ----------
   function scale(key) {
@@ -123,7 +122,7 @@
       .on('pointerleave', () => { tip.hidden = true; });
   }
 
-  // ---------- statewide panel ----------
+  // ---------- statewide ----------
   function drawState() {
     const t = stateTotals(), groups = byClass();
     $('st-total').textContent = num(t.total_gap);
@@ -152,48 +151,66 @@
     $('class-facts').replaceChildren(ul);
   }
 
-  // ---------- county panel ----------
+  // ---------- county ----------
+  function miniBars(rows, f) {
+    const box = el('div', 'mini');
+    const max = Math.max(...rows.map(([, v]) => Math.abs(v || 0)), 1e-9);
+    rows.forEach(([name, v], i) => {
+      if (v == null || Number.isNaN(+v)) return;
+      const r = el('div', 'mini-row' + (i === 0 ? ' lead' : ''));
+      const track = el('div', 'track'), fill = el('div', 'fill');
+      fill.style.width = Math.max(2, (Math.abs(v) / max) * 100) + '%';
+      track.append(fill);
+      r.append(el('span', null, name), track, el('span', 'v', f(v)));
+      box.append(r);
+    });
+    return box;
+  }
   function drawCounty() {
     const c = row();
-    $('panel-state').hidden = !!c; $('panel-county').hidden = !c; $('profile-sec').hidden = !c;
+    $('sec-state').hidden = !!c; $('sec-county').hidden = !c;
     if (!c) return;
-    const peers = peersOf(c), st = stateTotals(), flags = flagsOf(c);
+    const peers = peersOf(c), st = stateTotals(), flags = flagsOf(c).filter((f) => f.on);
     $('c-kind').textContent = KIND[c.rural_class] + ' county';
-    $('c-name').textContent = c.county; $('p-name').textContent = c.county;
+    $('c-name').textContent = c.county;
     const chips = [];
     if (c.tier != null) chips.push('Commerce tier ' + c.tier);
     if (c.cog) chips.push(c.cog.replace(/\s*\(Region.*\)$/, ''));
     if (c.osoh_team) chips.push('Our State, Our Homes team');
     if (c.homes_damaged != null || c.homes_destroyed != null) chips.push('Helene disaster county');
     $('c-chips').replaceChildren(...chips.map((t) => el('span', 'chip', t)));
+
+    const me = c.county;
     const stats = [
-      ['Homes short by 2029', num(c.total_gap), num(c.rental_gap) + ' rent · ' + num(c.forsale_gap) + ' buy'],
-      ['Short per 100 households', one(c.gap_pct_hh), 'State ' + one(st.gap_pct_hh) + ' · Peers ' + one(median(peers, 'gap_pct_hh')) + ' · Rank #' + c.gap_rank],
-      ['Household growth to 2029', signed(c.hh_growth_pct), 'State ' + signed(st.hh_growth_pct) + ' · Peers ' + signed(median(peers, 'hh_growth_pct'))],
-      ['Permits vs. yearly need', pct0(c.pace_pct), num(c.permits_avg) + ' of ' + num(c.annual_need) + ' a year · Peers ' + pct0(median(peers, 'pace_pct'))],
+      { label: 'Homes short by 2029', v: num(c.total_gap), sub: num(c.rental_gap) + ' to rent · ' + num(c.forsale_gap) + ' to buy',
+        rows: [[me, c.total_gap], ['Peers', median(peers, 'total_gap')]], f: num },
+      { label: 'Homes short per 100 households', v: one(c.gap_pct_hh), sub: 'Rank #' + c.gap_rank + ' of 100 counties',
+        rows: [[me, c.gap_pct_hh], ['Peers', median(peers, 'gap_pct_hh')], ['NC', st.gap_pct_hh]], f: one },
+      { label: 'Household growth, 2024 to 2029', v: signed(c.hh_growth_pct), sub: num(c.hh_2024) + ' households in 2024',
+        rows: [[me, c.hh_growth_pct], ['Peers', median(peers, 'hh_growth_pct')], ['NC', st.hh_growth_pct]], f: signed },
+      { label: 'Permits vs. yearly need', v: pct0(c.pace_pct), sub: num(c.permits_avg) + ' permitted of ' + num(c.annual_need) + ' needed a year',
+        rows: [[me, c.pace_pct], ['Peers', median(peers, 'pace_pct')], ['NC', st.pace_pct]], f: pct0 },
     ];
-    $('c-stats').replaceChildren(...stats.map(([l, n, s]) => { const d = el('div'); d.append(el('div', 'stat-label', l), el('div', 'stat-num', n), el('div', 'stat-cmp', s)); return d; }));
-    $('c-pills').replaceChildren(...flags.filter((f) => f.on).map((f) => el('span', 'pill', f.label)));
-    drawBands(c); drawPermits(c); drawFacts(c); drawPeers(c, peers); drawFlags(flags);
+    $('c-stats').replaceChildren(...stats.map((s) => {
+      const d = el('div', 'stat');
+      d.append(el('div', 'stat-label', s.label), el('div', 'stat-num', s.v), miniBars(s.rows, s.f), el('div', 'stat-sub', s.sub));
+      return d;
+    }));
+
+    $('c-issues-wrap').hidden = !flags.length;
+    $('c-issues').replaceChildren(...flags.map((f) => {
+      const b = el('button', 'issue', f.label); b.type = 'button'; b.title = f.why;
+      b.onclick = () => {
+        S.barrier = f.barrier; S.setting = 'auto'; S.showAll = { strategies: false, cases: false };
+        drawApproaches();
+        $('approaches').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      };
+      return b;
+    }));
+
+    drawPermits(c); drawFacts(c); drawPeers(c, peers);
   }
 
-  const BANDS = [['30', '30% of AMI or less'], ['50', '31 to 50%'], ['80', '51 to 80%'], ['120', '81 to 120%'], ['150', '121 to 150%'], ['151', '151% or more']];
-  function drawBands(c) {
-    const box = $('bands'), data = BANDS.map(([k, label]) => ({ label, rent: c['rg_' + k], sale: c['fg_' + k] }));
-    const top = (k) => data.slice().sort((a, b) => (b[k] || 0) - (a[k] || 0))[0].label.replace(' of AMI', '');
-    $('bands-title').textContent = 'Rental need is largest at ' + top('rent') + ' of AMI; for-sale need at ' + top('sale');
-    const W = Math.max(box.clientWidth, 260), rowH = 36, left = 118, right = 50, H = rowH * data.length + 8;
-    const x = d3.scaleLinear().domain([0, d3.max(data, (d) => Math.max(d.rent || 0, d.sale || 0)) || 1]).range([0, W - left - right]);
-    box.replaceChildren();
-    const svg = d3.select(box).append('svg').attr('viewBox', '0 0 ' + W + ' ' + H).attr('height', H).attr('role', 'img')
-      .attr('aria-label', 'Homes short in ' + c.county + ' County by income band, rental and for sale');
-    const g = svg.selectAll('g').data(data).join('g').attr('transform', (d, i) => 'translate(0,' + (4 + i * rowH) + ')');
-    g.append('text').attr('x', left - 8).attr('y', rowH / 2 - 1).attr('text-anchor', 'end').attr('dominant-baseline', 'middle').text((d) => d.label);
-    [['rent', 'var(--accent)', 3], ['sale', 'var(--accent-2)', 17]].forEach(([k, color, y]) => {
-      g.append('rect').attr('x', left).attr('y', y).attr('height', 12).attr('rx', 2).attr('width', (d) => x(d[k] || 0)).style('fill', color);
-      g.append('text').attr('class', 'val').attr('x', (d) => left + x(d[k] || 0) + 5).attr('y', y + 6.5).attr('dominant-baseline', 'middle').text((d) => num(d[k]));
-    });
-  }
   function drawPermits(c) {
     const box = $('permits'), years = ['2021', '2022', '2023', '2024', '2025'], data = years.map((y) => ({ y, v: c['permits_' + y] })), need = c.annual_need;
     $('permits-title').textContent = 'Recent permits cover ' + pct0(c.pace_pct) + ' of the ' + num(need) + ' homes a year the gap calls for';
@@ -237,12 +254,6 @@
       return tr;
     }));
   }
-  function flagItem(f) { const li = el('li', 'flag' + (f.on ? '' : ' off')); li.append(el('em', null, f.on ? 'Flagged' : 'Not flagged'), el('b', null, f.label), el('span', null, f.why)); return li; }
-  function drawFlags(flags) {
-    const on = flags.filter((f) => f.on);
-    $('flags').replaceChildren(...(on.length ? on.map(flagItem) : [el('li', 'empty', 'None of the seven checks is flagged for this county.')]));
-    $('flags-all').replaceChildren(...flags.map(flagItem));
-  }
 
   // ---------- approaches ----------
   const safe = (u) => (typeof u === 'string' && /^https:\/\//.test(u) ? u : null);
@@ -257,7 +268,8 @@
     if (!c && barrier === 'auto') barrier = 'all';
     if (!c && setting === 'auto') setting = 'any';
     $('barrier-select').value = barrier; $('setting-select').value = setting;
-    let barriers = barrier === 'all' ? Object.keys(BARRIER) : barrier === 'auto' ? [...new Set(flagsOf(c).filter((f) => f.on).flatMap((f) => f.barriers))] : [barrier];
+    let barriers = barrier === 'all' ? Object.keys(BARRIER) : barrier === 'auto' ? [...new Set(flagsOf(c).filter((f) => f.on).map((f) => f.barrier))] : [barrier];
+    if (!barriers.length) barriers = Object.keys(BARRIER);
     const place = setting === 'any' ? null : setting === 'auto' ? SETTING[c.rural_class] : setting;
     const rank = (x) => barriers.indexOf(x.barrier);
     const st = S.strategies.filter((x) => barriers.includes(x.barrier) && (!place || String(x.applies_to || '').split(',').includes(place))).sort((a, b) => rank(a) - rank(b));
@@ -303,27 +315,25 @@
     const c = S.counties.find((r) => slug(r.county) === h);
     select(c ? c.fips : null, true);
   }
+  // Closest-name match: exact, then prefix, then substring.
+  function match(q) {
+    q = q.trim().toLowerCase().replace(/ county$/, '');
+    if (!q) return null;
+    return S.counties.find((r) => r.county.toLowerCase() === q)
+      || S.counties.find((r) => r.county.toLowerCase().startsWith(q))
+      || S.counties.find((r) => r.county.toLowerCase().includes(q));
+  }
 
   $('metric-select').onchange = (e) => { S.metric = e.target.value; drawLegend(); drawMap(); };
   $('barrier-select').onchange = (e) => { S.barrier = e.target.value; S.showAll = { strategies: false, cases: false }; drawApproaches(); };
-  $('setting-select').onchange = (e) => { S.setting = e.target.value; drawApproaches(); };
+  $('setting-select').onchange = (e) => { S.setting = e.target.value; S.showAll = { strategies: false, cases: false }; drawApproaches(); };
   $('to-state').onclick = () => select(null);
-  $('to-profile').onclick = () => $('profile-sec').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
-  $('panel-toggle').onclick = (e) => {
-    const collapsed = $('explore').classList.toggle('collapsed');
-    e.currentTarget.textContent = collapsed ? 'Show panel' : 'Hide panel';
-    e.currentTarget.setAttribute('aria-expanded', String(!collapsed));
-  };
   const search = $('county-search');
-  const trySearch = () => {
-    const q = search.value.trim().toLowerCase().replace(/ county$/, '');
-    const c = S.counties.find((r) => r.county.toLowerCase() === q);
-    if (c && c.fips !== S.county) select(c.fips);
-  };
-  search.addEventListener('input', trySearch); search.addEventListener('change', trySearch);
-  addEventListener('hashchange', fromHash);
+  search.addEventListener('input', () => { const c = match(search.value); if (c && c.county.toLowerCase() === search.value.trim().toLowerCase().replace(/ county$/, '') && c.fips !== S.county) select(c.fips); });
+  search.addEventListener('change', () => { const c = match(search.value); if (c && c.fips !== S.county) select(c.fips); });
+  search.addEventListener('keydown', (e) => { if (e.key === 'Enter') { const c = match(search.value); if (c) select(c.fips); } });
   let wide = innerWidth;
-  addEventListener('resize', () => { if (Math.abs(innerWidth - wide) > 20) { wide = innerWidth; if (row()) { drawBands(row()); drawPermits(row()); } } });
+  addEventListener('resize', () => { if (Math.abs(innerWidth - wide) > 20) { wide = innerWidth; if (row()) drawPermits(row()); } });
 
   Promise.all(['counties', 'strategies', 'cases'].map((n) => fetch('data/' + n + '.json').then((r) => { if (!r.ok) throw new Error(n); return r.json(); })))
     .then(([c, s, k]) => {

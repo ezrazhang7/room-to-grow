@@ -9,7 +9,7 @@
 <meta property="og:title" content="Room to Grow">
 <meta property="og:description" content="The housing gap, building pace and local options for each of North Carolina's 100 counties.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f6b4f'/%3E%3Cpath d='M7 17 16 9l9 8v8H7z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2313294B'/%3E%3Cpath d='M7 17 16 9l9 8v8H7z' fill='%234B9CD3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="styles.css">
@@ -24,76 +24,75 @@
     </div>
     <div class="find">
       <label for="county-search">Find a county</label>
-      <input id="county-search" list="county-list" placeholder="Type a county name" autocomplete="off">
+      <input id="county-search" list="county-list" placeholder="Type or pick a county" autocomplete="off">
       <datalist id="county-list"></datalist>
     </div>
   </header>
+</div>
 
+<section class="bleed" aria-label="County map">
+  <div class="map-shell">
+    <div class="bar">
+      <label class="field">Color the map by
+        <select id="metric-select">
+          <option value="gap_pct_hh">Homes short per 100 households</option>
+          <option value="total_gap">Homes short by 2029</option>
+          <option value="pace_pct">Permits as a share of yearly need</option>
+          <option value="hh_growth_pct">Household growth, 2024 to 2029</option>
+          <option value="rent_burden_pct">Renters paying 30% or more of income</option>
+          <option value="median_home_value">Median home value</option>
+          <option value="distressed_units">Distressed water and sewer systems</option>
+        </select>
+      </label>
+      <div class="legend" id="map-legend"></div>
+    </div>
+    <div class="map" id="map"></div>
+  </div>
+</section>
+
+<div class="wrap">
   <main>
-    <section class="hero" id="explore" aria-label="Map and summary">
-      <div class="map-col">
-        <div class="bar">
-          <label class="field">Color the map by
-            <select id="metric-select">
-              <option value="gap_pct_hh">Homes short per 100 households</option>
-              <option value="total_gap">Homes short by 2029</option>
-              <option value="pace_pct">Permits as a share of yearly need</option>
-              <option value="hh_growth_pct">Household growth, 2024 to 2029</option>
-              <option value="rent_burden_pct">Renters paying 30% or more of income</option>
-              <option value="median_home_value">Median home value</option>
-              <option value="distressed_units">Distressed water and sewer systems</option>
-            </select>
-          </label>
-          <div class="legend" id="map-legend"></div>
-          <button type="button" class="ghost" id="panel-toggle" aria-expanded="true" aria-controls="panel">Hide panel</button>
-        </div>
-        <div class="map" id="map"></div>
-      </div>
-
-      <aside class="panel" id="panel">
-        <div id="panel-state">
+    <section class="block" id="sec-state">
+      <div class="state-row">
+        <div class="state-num">
           <p class="eyebrow">North Carolina</p>
           <p class="big" id="st-total">—</p>
           <p class="big-sub">homes short by 2029 · <span id="st-rental">—</span> to rent · <span id="st-forsale">—</span> to buy</p>
-          <div class="donut-row">
-            <div class="donut" id="donut"></div>
-            <ul class="donut-key" id="donut-key"></ul>
-          </div>
-          <details class="more" id="class-facts-wrap">
-            <summary>How the three kinds of county compare</summary>
-            <div id="class-facts"></div>
-          </details>
-          <p class="hint">Select a county on the map to see its numbers.</p>
+          <p class="hint">Select a county on the map, or search above, to see its numbers.</p>
         </div>
+        <div class="donut-row">
+          <div class="donut" id="donut"></div>
+          <ul class="donut-key" id="donut-key"></ul>
+        </div>
+      </div>
+      <details class="more">
+        <summary>How the three kinds of county compare</summary>
+        <div id="class-facts"></div>
+      </details>
+    </section>
 
-        <div id="panel-county" hidden>
+    <section class="block" id="sec-county" hidden>
+      <div class="county-head">
+        <div>
           <p class="eyebrow" id="c-kind">—</p>
           <h2 class="c-name"><span id="c-name">—</span> County</h2>
           <div class="chips" id="c-chips"></div>
-          <div class="stats" id="c-stats"></div>
-          <div class="pills" id="c-pills"></div>
-          <div class="panel-actions">
-            <button type="button" class="solid" id="to-profile">Full profile</button>
-            <button type="button" class="ghost" id="to-state">Back to statewide</button>
-          </div>
         </div>
-      </aside>
-    </section>
-
-    <section class="block" id="profile-sec" hidden>
-      <h2 class="h2"><span id="p-name">—</span> County in detail</h2>
-      <div class="two">
-        <figure class="card">
-          <figcaption id="bands-title">Who the missing homes are for</figcaption>
-          <div class="chart" id="bands"></div>
-          <p class="src"><span class="key"><i class="k1"></i>Rental</span><span class="key"><i class="k2"></i>For sale</span> By household income as a share of area median income (AMI). Bowen National Research, 2024.</p>
-        </figure>
-        <figure class="card">
-          <figcaption id="permits-title">Homes permitted each year</figcaption>
-          <div class="chart" id="permits"></div>
-          <p class="src">Housing units in building permits. Census Building Permits Survey, 2021 to 2025.</p>
-        </figure>
+        <button type="button" class="ghost" id="to-state">Back to statewide</button>
       </div>
+
+      <div class="statgrid" id="c-stats"></div>
+
+      <div class="issues" id="c-issues-wrap" hidden>
+        <span class="issues-label">What may be holding building back — pick one to see responses:</span>
+        <div class="chips" id="c-issues"></div>
+      </div>
+
+      <figure class="card">
+        <figcaption id="permits-title">Homes permitted each year</figcaption>
+        <div class="chart" id="permits"></div>
+        <p class="src">Housing units in building permits. Census Building Permits Survey, 2021 to 2025. The dashed line is one fifth of the county's five-year gap.</p>
+      </figure>
 
       <details class="more card">
         <summary>More numbers for this county</summary>
@@ -109,13 +108,6 @@
           <tbody></tbody>
         </table>
       </div>
-
-      <h3 class="h3">What may be holding building back</h3>
-      <ul class="flags" id="flags"></ul>
-      <details class="more">
-        <summary>All seven checks and how they work</summary>
-        <ul class="flags" id="flags-all"></ul>
-      </details>
     </section>
 
     <section class="block" id="approaches">
@@ -124,7 +116,7 @@
         <div class="bar">
           <label class="field">Barrier
             <select id="barrier-select">
-              <option value="auto">Flagged for this county</option>
+              <option value="auto">Issues for this county</option>
               <option value="all">All</option>
               <option value="infrastructure">Water, sewer and roads</option>
               <option value="financing-gap">Projects that do not pencil out</option>
@@ -203,10 +195,10 @@
         <ul>
           <li><b>Homes short:</b> additional homes the Bowen study projects a county needs between 2024 and 2029.</li>
           <li><b>Permits as a share of yearly need:</b> average homes permitted per year in 2023 to 2025, divided by one fifth of the five-year gap.</li>
-          <li><b>AMI:</b> area median income. A household at 80% of AMI earns four fifths of the middle income for its area.</li>
           <li><b>Kind of county:</b> rural is 250 people per square mile or fewer on the 2020 Census, regional city or suburban is 250 to 750, urban is more than 750.</li>
           <li><b>Peers:</b> the five counties of the same kind with the closest number of households.</li>
           <li><b>Distressed system:</b> a local water or sewer utility the state has designated as struggling to pay for upkeep and expansion.</li>
+          <li><b>Issues:</b> screening checks on a county's numbers, using cut-offs chosen for this site; each states its cut-off.</li>
         </ul>
       </div>
       <div>
@@ -216,7 +208,7 @@
           <li>A county where no permit office reports shows zero permits, so very low figures can reflect reporting.</li>
           <li>Permits also replace demolished homes, so the pace figure is a rough check.</li>
           <li>Survey figures for small counties have wide margins of error.</li>
-          <li>The seven checks use cut-offs chosen for this site. They sort counties for a first look and are not findings of the sources.</li>
+          <li>The issue checks sort counties for a first look and are not findings of the sources.</li>
           <li>A blank in a project card means the source did not state the figure.</li>
         </ul>
       </div>
