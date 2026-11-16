@@ -33,7 +33,7 @@
   };
   const RAMP = ['--r1', '--r2', '--r3', '--r4', '--r5'];
 
-  const S = { counties: [], strategies: [], cases: [], county: null, metric: 'gap_pct_hh', barrier: 'auto', setting: 'auto', showAll: { strategies: false, cases: false } };
+  const S = { counties: [], strategies: [], cases: [], county: null, metric: 'gap_pct_hh', barrier: 'auto', setting: 'auto', showAll: { strategies: false, cases: false }, classFilter: null, peerSort: null };
   const FIRST = 4;
   const row = () => S.counties.find((r) => r.fips === S.county) || null;
   const sum = (rows, k) => rows.reduce((a, r) => a + (+r[k] || 0), 0);
@@ -110,6 +110,7 @@
     svg.selectAll('path').data(order).join('path')
       .attr('d', (d) => d.d).attr('class', (d) => (d.fips === S.county ? 'on' : null))
       .style('fill', (d) => { const b = sc.bin(by.get(d.fips)?.[S.metric]); return b < 0 ? 'var(--r0)' : 'var(' + RAMP[b] + ')'; })
+      .style('fill-opacity', (d) => (S.classFilter && by.get(d.fips)?.rural_class !== S.classFilter ? 0.14 : 1))
       .on('click', (e, d) => select(d.fips))
       .on('pointermove', (e, d) => {
         const r = by.get(d.fips); if (!r) return;
@@ -131,14 +132,18 @@
     const box = $('donut'); box.replaceChildren();
     const R = 100, svg = d3.select(box).append('svg').attr('viewBox', [-R, -R, 2 * R, 2 * R].join(' ')).attr('role', 'img')
       .attr('aria-label', 'Share of the statewide housing gap: ' + groups.map((g) => g.label + ' ' + pct0(g.share)).join(', '));
+    const toggle = (cls) => { S.classFilter = S.classFilter === cls ? null : cls; drawMap(); drawState(); };
     const arcs = d3.pie().sort(null).value((g) => g.gap).padAngle(0.012)(groups);
     const arc = d3.arc().innerRadius(60).outerRadius(R).cornerRadius(2);
-    svg.selectAll('path').data(arcs).join('path').attr('d', arc).style('fill', (d) => KIND_COLOR[d.data.cls]);
+    svg.selectAll('path').data(arcs).join('path').attr('d', arc).style('fill', (d) => KIND_COLOR[d.data.cls])
+      .style('fill-opacity', (d) => (S.classFilter && S.classFilter !== d.data.cls ? 0.3 : 1))
+      .on('click', (e, d) => toggle(d.data.cls));
     svg.append('text').attr('text-anchor', 'middle').attr('y', -2).style('font-size', '13px').style('font-weight', 600).text('Share of');
     svg.append('text').attr('text-anchor', 'middle').attr('y', 15).style('font-size', '13px').style('font-weight', 600).text('the gap');
     $('donut-key').replaceChildren(...groups.map((g) => {
-      const li = el('li'), sw = el('i'); sw.style.background = KIND_COLOR[g.cls];
+      const li = el('li', S.classFilter && S.classFilter !== g.cls ? 'dim' : null), sw = el('i'); sw.style.background = KIND_COLOR[g.cls];
       li.append(sw, el('span', null, g.label), el('b', null, pct0(g.share)), el('small', null, num(g.gap) + ' homes · ' + g.n + ' counties'));
+      li.onclick = () => toggle(g.cls);
       return li;
     }));
     const ul = el('ul', 'cf');
@@ -246,7 +251,16 @@
     $('facts').replaceChildren(...FACTS.map(([k, label, f]) => { const d = el('div', 'fact'); d.append(el('dt', null, label), el('dd', null, f(c[k]))); return d; }));
   }
   function drawPeers(c, peers) {
-    const rows = [c, ...peers.slice().sort((a, b) => b.hh_2024 - a.hh_2024)];
+    let rows = [c, ...peers.slice().sort((a, b) => b.hh_2024 - a.hh_2024)];
+    const ps = S.peerSort;
+    document.querySelectorAll('#peers th').forEach((th) => th.setAttribute('aria-sort', ps && th.dataset.key === ps.key ? (ps.dir > 0 ? 'ascending' : 'descending') : 'none'));
+    if (ps) {
+      rows = rows.slice().sort((a, b) => {
+        const x = a[ps.key], y = b[ps.key];
+        if (x == null) return 1; if (y == null) return -1;
+        return (typeof x === 'string' ? x.localeCompare(y) : x - y) * ps.dir;
+      });
+    }
     $('peers').tBodies[0].replaceChildren(...rows.map((r) => {
       const tr = el('tr', r.fips === c.fips ? 'self' : null);
       const name = el('td');
@@ -308,7 +322,7 @@
   // ---------- state changes ----------
   function render() { drawLegend(); drawMap(); drawCounty(); drawApproaches(); }
   function select(fips, fromHash) {
-    S.county = fips || null; S.barrier = 'auto'; S.setting = 'auto'; S.showAll = { strategies: false, cases: false };
+    S.county = fips || null; S.barrier = 'auto'; S.setting = 'auto'; S.showAll = { strategies: false, cases: false }; S.peerSort = null;
     const c = row();
     $('county-search').value = c ? c.county : '';
     if (!fromHash) { try { history.replaceState(null, '', c ? '#' + slug(c.county) : location.pathname + location.search); } catch (e) { /* hash not available here */ } }
@@ -333,6 +347,17 @@
   $('barrier-select').onchange = (e) => { S.barrier = e.target.value; S.showAll = { strategies: false, cases: false }; drawApproaches(); };
   $('setting-select').onchange = (e) => { S.setting = e.target.value; S.showAll = { strategies: false, cases: false }; drawApproaches(); };
   $('to-state').onclick = () => select(null);
+  document.querySelectorAll('#peers th').forEach((th) => {
+    th.tabIndex = 0;
+    const go = () => {
+      const k = th.dataset.key;
+      const ps = S.peerSort;
+      S.peerSort = ps && ps.key === k ? (ps.dir === (k === 'county' ? 1 : -1) ? { key: k, dir: -ps.dir } : null) : { key: k, dir: k === 'county' ? 1 : -1 };
+      const c = row(); if (c) drawPeers(c, peersOf(c));
+    };
+    th.onclick = go;
+    th.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+  });
   const search = $('county-search');
   search.addEventListener('input', () => { const c = match(search.value); if (c && c.county.toLowerCase() === search.value.trim().toLowerCase().replace(/ county$/, '') && c.fips !== S.county) select(c.fips); });
   search.addEventListener('change', () => { const c = match(search.value); if (c && c.fips !== S.county) select(c.fips); });
@@ -340,7 +365,7 @@
   let wide = innerWidth;
   addEventListener('resize', () => { if (Math.abs(innerWidth - wide) > 20) { wide = innerWidth; if (row()) drawPermits(row()); } });
 
-  Promise.all(['counties', 'strategies', 'cases'].map((n) => fetch('data/' + n + '.json?v=3').then((r) => { if (!r.ok) throw new Error(n); return r.json(); })))
+  Promise.all(['counties', 'strategies', 'cases'].map((n) => fetch('data/' + n + '.json?v=4').then((r) => { if (!r.ok) throw new Error(n); return r.json(); })))
     .then(([c, s, k]) => {
       S.counties = c.rows.map((r) => ({ ...r, fips: String(r.fips) })); S.strategies = s.rows; S.cases = k.rows;
       $('county-list').replaceChildren(...S.counties.map((r) => { const o = el('option'); o.value = r.county; return o; }));

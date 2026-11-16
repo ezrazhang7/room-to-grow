@@ -11,8 +11,8 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2313294B'/%3E%3Cpath d='M7 17 16 9l9 8v8H7z' fill='%234B9CD3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Libre+Franklin:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 <div class="wrap">
@@ -62,7 +62,10 @@
         </div>
         <div class="donut-row">
           <div class="donut" id="donut"></div>
-          <ul class="donut-key" id="donut-key"></ul>
+          <div>
+            <ul class="donut-key" id="donut-key"></ul>
+            <p class="hint">Select a slice to light those counties up on the map.</p>
+          </div>
         </div>
       </div>
       <details class="more">
@@ -103,7 +106,7 @@
       <div class="card scroll">
         <table class="table" id="peers">
           <thead><tr>
-            <th>County</th><th>Households</th><th>Homes short</th><th>Short per 100 households</th><th>Household growth</th><th>Permits vs. need</th><th>Median home value</th><th>Renters paying 30%+</th>
+            <th data-key="county" scope="col">County</th><th data-key="hh_2024" scope="col">Households</th><th data-key="total_gap" scope="col">Homes short</th><th data-key="gap_pct_hh" scope="col">Short per 100 households</th><th data-key="hh_growth_pct" scope="col">Household growth</th><th data-key="pace_pct" scope="col">Permits vs. need</th><th data-key="median_home_value" scope="col">Median home value</th><th data-key="rent_burden_pct" scope="col">Renters paying 30%+</th>
           </tr></thead>
           <tbody></tbody>
         </table>
@@ -217,7 +220,7 @@
   </footer>
 </div>
 <script src="d3.min.js"></script>
-<script src="geo.js?v=3"></script>
-<script src="app.js?v=3"></script>
+<script src="geo.js?v=4"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
