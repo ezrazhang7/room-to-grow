@@ -1,0 +1,286 @@
+{
+ "strategies": [
+  {
+   "id": "water-sewer-extension-grants",
+   "name": "Extend public water and sewer to a housing site with grant funds",
+   "applies_to": ["rural"],
+   "barrier": "infrastructure",
+   "what_it_is": "A county or town applies for grant money to run public water and sewer lines to land where a nonprofit or local government will build workforce housing. Golden LEAF funds this kind of publicly owned infrastructure when the housing is led by a local government or nonprofit.",
+   "how_a_local_government_starts": "Identify a site with a committed nonprofit or public developer, get an engineer's cost estimate for the lines, and apply to Golden LEAF's Open Grants Program with the county or its economic development office as applicant.",
+   "nc_example": {
+    "place": "Webster Village",
+    "county": "Jackson",
+    "summary": "Golden LEAF awarded Jackson County Economic Development $500,000 in April 2026 for public water and sewer lines serving 33 affordable single-family homes that the nonprofit Mountain Projects plans for local workers.",
+    "source_url": "https://goldenleaf.org/?p=6922"
+   },
+   "more_sources": ["https://goldenleaf.org/all-in-nc-building-economic-opportunity-through-housing-infrastructure/"]
+  },
+  {
+   "id": "cdbg-plus-match-subdivision-infrastructure",
+   "name": "Pair CDBG with a philanthropic match to build subdivision infrastructure",
+   "applies_to": ["rural", "suburban"],
+   "barrier": "infrastructure",
+   "what_it_is": "A city commits Community Development Block Grant money to streets, water, sewer and stormwater for a new neighborhood and uses a foundation grant to meet the required match. A nonprofit builder such as Habitat for Humanity then builds and sells the homes.",
+   "how_a_local_government_starts": "Partner with a nonprofit builder that controls a site, budget the infrastructure separately from the homes, and line up a match source before applying for CDBG infrastructure funds.",
+   "nc_example": {
+    "place": "McNair Heights, Goldsboro",
+    "county": "Wayne",
+    "summary": "Golden LEAF awarded $500,000 in 2025 as the match for the City of Goldsboro's CDBG infrastructure funding; with Habitat funds the partners are making about $2.1 million in water, sewer, road and stormwater improvements on a 24.5-acre site. Phase 1 is 31 single-family homes, 25 of them Habitat homes.",
+    "source_url": "https://goldenleaf.org/habitat-for-humanity-builds-homes-to-support-the-workforce-in-wayne-county/"
+   },
+   "more_sources": ["https://goldenleaf.org/all-in-nc-building-economic-opportunity-through-housing-infrastructure/"]
+  },
+  {
+   "id": "state-water-infrastructure-funding",
+   "name": "Apply to NC DEQ's Division of Water Infrastructure for system capacity",
+   "applies_to": ["rural", "suburban"],
+   "barrier": "infrastructure",
+   "what_it_is": "The NC Department of Environmental Quality awards state and federal grants and low-interest loans for drinking water and wastewater projects in funding rounds each year. Small systems can use them to fix or expand the treatment and collection capacity that new housing depends on.",
+   "how_a_local_government_starts": "Attend the Division of Water Infrastructure's application training and submit in the next round; the spring 2026 round opened February 23 with applications due April 30, 2026.",
+   "nc_example": {
+    "place": "Hot Springs",
+    "county": "Madison",
+    "summary": "In February 2026 the state announced more than $472 million for 145 projects in 66 counties. The Town of Hot Springs received a $3.2 million State Reserve Grant for a sewer project connecting its Housing Authority to the main wastewater treatment plant.",
+    "source_url": "https://www.deq.nc.gov/news/press-releases/2026/02/19/governor-stein-department-environmental-quality-announce-472-million-drinking-water-and-wastewater"
+   },
+   "more_sources": []
+  },
+  {
+   "id": "tax-credit-gap-financing",
+   "name": "Close the gap on tax credit apartments with state and local loans",
+   "applies_to": ["rural", "suburban", "urban"],
+   "barrier": "financing-gap",
+   "what_it_is": "Low-Income Housing Tax Credit apartments rarely cover their full cost, so the NC Housing Finance Agency's Workforce Housing Loan Program and local government soft loans fill the difference. A local commitment of funds or land makes a developer's application more likely to work in a low-rent rural market.",
+   "how_a_local_government_starts": "Meet with tax credit developers before the NCHFA application cycle and decide what the county or town can commit: a deferred loan, land, or fee waivers.",
+   "nc_example": {
+    "place": "North Carolina (statewide program data)",
+    "county": "Statewide",
+    "summary": "In 2024, 64% of 9% tax credit projects had a local government soft loan, local governments committed over $28 million, and NCHFA awarded $32.5 million in Workforce Housing Loan Program funds to 88% of new construction projects. The median development cost was $250,000 per unit.",
+    "source_url": "https://www.sog.unc.edu/blogs/community-and-economic-development-ced/2024-update-local-governments-are-closing-financial-gap-affordable-housing-developments-0"
+   },
+   "more_sources": ["https://nchousing.org/nc-housing-finance-agency-announces-2025-tax-credit-awards/"]
+  },
+  {
+   "id": "local-housing-bond",
+   "name": "Ask voters to approve a housing bond",
+   "applies_to": ["suburban", "urban"],
+   "barrier": "financing-gap",
+   "what_it_is": "A county or city puts a general obligation bond on the ballot and uses the proceeds to lend to or invest in affordable housing projects. Voters see the purpose and the estimated tax cost before they decide.",
+   "how_a_local_government_starts": "The governing board adopts a bond order and sets the referendum, after review by the Local Government Commission, and publishes the per-household tax cost.",
+   "nc_example": {
+    "place": "Buncombe County",
+    "county": "Buncombe",
+    "summary": "On November 3, 2026, Buncombe County voters approved a $40 million housing bond with 58% of the vote (unofficial results), at an estimated cost of about $25 a year for the median homeowner.",
+    "source_url": "https://wlos.com/news/election/buncombe-henderson-counties-bond-referendums-approved-2026-election-housing-conservation"
+   },
+   "more_sources": []
+  },
+  {
+   "id": "public-land-for-housing",
+   "name": "Offer publicly owned land for housing through a competitive solicitation",
+   "applies_to": ["rural", "suburban", "urban"],
+   "barrier": "land-and-zoning",
+   "what_it_is": "A local government picks a site it already owns, sets the number of homes and income levels it wants, and asks developers to compete for it. North Carolina law lets counties and cities convey or lease property for low- and moderate-income housing if the deal carries enforceable affordability conditions.",
+   "how_a_local_government_starts": "Inventory surplus public parcels, have counsel confirm the conveyance authority (G.S. 153A-378 for counties, G.S. 160A-279 for cities), and issue a request for proposals with unit counts, income limits and a reverter clause.",
+   "nc_example": {
+    "place": "50-52 Coxe Avenue, Asheville",
+    "county": "Buncombe",
+    "summary": "Buncombe County, working with UNC's Development Finance Initiative, sought a developer in 2024 for about 1.6 county-owned acres downtown: at least 200 affordable rentals for households at 20% to 80% of area median income, offered with a 50-plus-year nominal ground lease and up to $9.8 million in county financing.",
+    "source_url": "https://dfi.sog.unc.edu/wp-content/uploads/2025/04/Buncombe-County_Coxe-Avenue-Solicitation_Summer-2024.pdf"
+   },
+   "more_sources": ["https://www.sog.unc.edu/node/135151", "https://www.transylvaniacounty.org/node/1007"]
+  },
+  {
+   "id": "adu-and-conversion-zoning",
+   "name": "Allow accessory dwelling units and conversions by right",
+   "applies_to": ["rural", "suburban", "urban"],
+   "barrier": "land-and-zoning",
+   "what_it_is": "A zoning text amendment lets owners add a small second home on a lot, or convert an existing garage or outbuilding, with a building permit instead of a hearing. It adds homes on land that already has roads and utilities.",
+   "how_a_local_government_starts": "Count how many recent variance cases involved accessory units, then have planning staff draft a text amendment that makes them a permitted use with clear size and setback standards.",
+   "nc_example": {
+    "place": "Asheville",
+    "county": "Buncombe",
+    "summary": "On January 28, 2026, Asheville City Council amended its development ordinance so existing nonconforming structures can become accessory dwelling units by right, after 17 such cases went to the Board of Adjustment in about 26 months. Separately, a 2026 state Regulatory Reform Act requires non-coastal cities over 50,000 people to allow accessory units on single-family lots, with local rules due by July 2027.",
+    "source_url": "https://cpo.soar.com/articles/7339237/Asheville-City/Buncombe-County/North-Carolina/Asheville-council-approves-UDO-tweak-to-let-owners-convert-existing-nonconforming-buildings-into-ADUs-without-Board-review"
+   },
+   "more_sources": ["https://www.cbs17.com/news/north-carolina-news/nc-governor-signs-off-on-housing-bill-that-would-make-tiny-homes-garage-apartments-easier-to-build/amp/"]
+  },
+  {
+   "id": "teacher-and-public-employee-housing",
+   "name": "Build rental housing for teachers and public employees",
+   "applies_to": ["rural"],
+   "barrier": "financing-gap",
+   "what_it_is": "A school foundation or local nonprofit builds a small apartment complex reserved for teachers and other public workers, financed with a zero-interest loan from the SECU Foundation that rents repay. It gives rural districts a recruiting tool where there is little rental housing.",
+   "how_a_local_government_starts": "Form or designate a nonprofit partner tied to the school district, secure a site (often school or county land), and approach the SECU Foundation about financing.",
+   "nc_example": {
+    "place": "Dream Pointe Apartments, Windsor",
+    "county": "Bertie",
+    "summary": "The 24-unit complex opened July 1, 2024 for public school and local government employees, built with $3.1 million in interest-free construction financing and 15-year interest-free permanent financing from the SECU Foundation to Partners for Bertie County Public Schools.",
+    "source_url": "https://cuinsight.com/press-release/secu-foundation-provides-financing-for-bertie-county-workforce-housing"
+   },
+   "more_sources": ["https://kenaninstitute.unc.edu/kenan-insight/affordable-rural-teacher-housing-initiatives-in-north-carolina/", "https://ncimpact.sog.unc.edu/2020/06/affordable-teacher-housing-dare-county/"]
+  },
+  {
+   "id": "student-built-homes",
+   "name": "Have community college construction students build homes for sale",
+   "applies_to": ["rural"],
+   "barrier": "construction-workforce",
+   "what_it_is": "A community college's building trades program builds modest single-family homes on donated or public land as its coursework, and a nonprofit sells them to local buyers. The county gets new homes and trained construction workers from the same project.",
+   "how_a_local_government_starts": "Bring the community college, a housing nonprofit and a land donor or the county together, and seek a foundation grant to cover the first homes; sale proceeds then fund the next ones.",
+   "nc_example": {
+    "place": "Tri-County Community College, Andrews",
+    "county": "Cherokee",
+    "summary": "With a $2.8 million Dogwood Health Trust grant and a donated 12-acre site divided into 17 lots, Building Construction Technology students had the first three homes under construction in February 2026. Each is about 1,400 square feet with a projected price near $250,000, and Mountain Projects will help find buyers.",
+    "source_url": "https://www.ednc.org/building-skills-building-homes-tri-county-community-college-launches-new-initiative-to-address-housing-shortages/"
+   },
+   "more_sources": []
+  },
+  {
+   "id": "development-finance-technical-assistance",
+   "name": "Bring in a development finance partner for pre-development work",
+   "applies_to": ["rural", "suburban"],
+   "barrier": "local-capacity",
+   "what_it_is": "Small governments without housing staff hire UNC School of Government's Development Finance Initiative (DFI) to study a site, test what is financially feasible, and recruit a private developer. The local government stays in control of what gets built.",
+   "how_a_local_government_starts": "Contact DFI with a candidate site or a housing need; the board then approves a scope of work covering market analysis, site analysis, financial modeling and developer solicitation.",
+   "nc_example": {
+    "place": "Lumberton",
+    "county": "Robeson",
+    "summary": "DFI began working with Lumberton in 2019 on housing after hurricane damage; the project broke ground in 2021 on 66 rental units for senior households earning 50% to 60% of area median income, with the units reserved for 30 years.",
+    "source_url": "https://www.sog.unc.edu/about/news/creating-resilient-housing-eastern-north-carolina"
+   },
+   "more_sources": ["https://www.sog.unc.edu/about/news/triumphs-affordable-housing-development", "https://dfi.sog.unc.edu/projects/case-studies/"]
+  },
+  {
+   "id": "community-land-trust",
+   "name": "Start or back a community land trust",
+   "applies_to": ["rural", "suburban", "urban"],
+   "barrier": "cost-burden",
+   "what_it_is": "A nonprofit land trust owns the land under a home and sells only the house, with resale rules that keep the price affordable for each later buyer. One public subsidy keeps serving new households instead of being lost at the first sale.",
+   "how_a_local_government_starts": "Find or help form a local trust, then give it a first property or seed funding; the NC Community Land Trust Coalition connects new trusts with established ones.",
+   "nc_example": {
+    "place": "Watauga Community Housing Trust, Boone",
+    "county": "Watauga",
+    "summary": "The volunteer-run Watauga trust completed its first home, a refurbished one-bedroom house sold to an adult with disabilities. Statewide, the coalition reports 394 homeownership units and 398 affordable rentals held by land trusts, serving households at an average of 63% of area median income.",
+    "source_url": "https://ncnewsline.com/2026/01/16/north-carolinas-community-land-trusts-form-coalition-to-build-support/"
+   },
+   "more_sources": ["https://wlos.com/news/local/new-community-homeownership-affordable-generations-hurricane-tropical-storm-helene-black-mountain-north-carolina-heartwood-village"]
+  },
+  {
+   "id": "resident-owned-manufactured-communities",
+   "name": "Help manufactured home residents buy their park",
+   "applies_to": ["rural", "suburban"],
+   "barrier": "displacement",
+   "what_it_is": "Residents of a manufactured home park form a cooperative and buy the land they rent, which stops lot-rent spikes and closure. State tax law gives park owners an advantage for selling to their leaseholders or to a nonprofit representing them.",
+   "how_a_local_government_starts": "Map the manufactured home parks in the county, tell park owners about the state tax incentive for selling to residents, and connect resident groups with a lender or technical assistance provider when a park goes up for sale.",
+   "nc_example": {
+    "place": "Burnsville",
+    "county": "Yancey",
+    "summary": "UNC School of Government reports that only one land-lease manufactured home community in North Carolina, in Burnsville, has become resident-owned. Manufactured housing is more than 30% of occupied housing in 20 North Carolina counties, most of them rural.",
+    "source_url": "https://www.sog.unc.edu/resources/microsites/building-assets-rural-future/increase-asset-building-potential-manufactured-housing"
+   },
+   "more_sources": ["https://southerlymag.org/2021/09/30/community-owned-mobile-parks-keep-eviction-at-bay-can-they-work-in-north-carolina"]
+  },
+  {
+   "id": "owner-occupied-home-repair",
+   "name": "Repair existing homes so owners can stay in them",
+   "applies_to": ["rural", "suburban", "urban"],
+   "barrier": "aging-stock",
+   "what_it_is": "NC Housing Finance Agency funds local governments, councils of government and nonprofits to make urgent repairs and full rehabilitations for low-income homeowners. Keeping an older home livable costs far less than building a replacement.",
+   "how_a_local_government_starts": "Apply to NCHFA's Urgent Repair Program or Essential Single-Family Rehabilitation Loan Pool directly, or ask the regional council of government to apply and run the program for the county.",
+   "nc_example": {
+    "place": "Gates and Tyrrell counties (Albemarle Commission)",
+    "county": "Tyrrell",
+    "summary": "In June 2025 NCHFA awarded $11 million for home rehabilitation in 30 counties at $182,000 per county served, including Gates and Tyrrell through the Albemarle Commission. In February 2026 its Urgent Repair Program awarded $8.8 million to help 622 homeowners in 78 counties, with loans up to $15,000 per household.",
+    "source_url": "https://www.ncsha.org/hfa-news/nc-housing-finance-agency-awards-11-million-for-home-rehab-in-30-counties/"
+   },
+   "more_sources": ["https://www.ncsha.org/hfa-news/nc-housing-finance-agency-awards-8-8-million-for-urgent-home-repairs-2/"]
+  },
+  {
+   "id": "preserve-existing-affordable-rentals",
+   "name": "Buy and preserve older apartments that are affordable without subsidy",
+   "applies_to": ["urban", "suburban"],
+   "barrier": "displacement",
+   "what_it_is": "A mission-driven fund buys older apartment complexes before investors raise the rents, renovates them, and commits to keep rents affordable for a set period. It protects current tenants faster than new construction can.",
+   "how_a_local_government_starts": "Identify older complexes at risk of sale, and offer a local investment or rent subsidy to a preservation fund or nonprofit buyer in exchange for a recorded affordability period.",
+   "nc_example": {
+    "place": "Housing Impact Fund, Charlotte",
+    "county": "Mecklenburg",
+    "summary": "The fund, founded with Ascent Housing, has raised $225 million from private investors; its latest round of more than $100 million will fund about 1,500 units, bringing the total to roughly 3,500. Units are committed to stay affordable for 20 years.",
+    "source_url": "https://spectrumlocalnews.com/nc/charlotte/news/2026/05/11/charlotte-housing-fund-helping-thousands-of-people-by-preserving-affordable-housing"
+   },
+   "more_sources": []
+  },
+  {
+   "id": "property-tax-relief-grants",
+   "name": "Offer property tax relief grants to long-time low-income homeowners",
+   "applies_to": ["urban", "suburban"],
+   "barrier": "cost-burden",
+   "what_it_is": "A county pays part of the property tax bill for income-qualified owners who have lived in their homes for several years. It helps owners in fast-appreciating neighborhoods keep their homes after a revaluation.",
+   "how_a_local_government_starts": "Set income and residency rules, budget a grant pool, and have the grant paid straight to the tax collector so it reduces the bill.",
+   "nc_example": {
+    "place": "Mecklenburg County HOMES program",
+    "county": "Mecklenburg",
+    "summary": "Mecklenburg County's HOMES program gave income-qualified owners who had lived in their home at least three years a grant of up to $340, paid to the county tax collector against the bill on their primary residence (2022 program terms).",
+    "source_url": "https://news.mecknc.gov/news/grant-funds-now-available-through-homes-program"
+   },
+   "more_sources": []
+  },
+  {
+   "id": "relocation-assistance-at-redevelopment",
+   "name": "Secure relocation assistance when redevelopment displaces residents",
+   "applies_to": ["urban", "suburban"],
+   "barrier": "displacement",
+   "what_it_is": "When a manufactured home park or older rental is sold for redevelopment, the buyer commits money for residents' moving costs, usually negotiated during the rezoning or sale. It does not replace the lost homes but lowers the cost to the households who must move.",
+   "how_a_local_government_starts": "Adopt a policy that asks rezoning applicants to submit a relocation plan when existing homes will be removed, and track at-risk parks so staff can engage before a sale closes.",
+   "nc_example": {
+    "place": "Wake Forest",
+    "county": "Wake",
+    "summary": "When a Wake Forest mobile home park was sold to Middleburg Properties, 45 families were displaced and the buyer committed $375,000 for residents' moving costs after residents had first explored buying the park.",
+    "source_url": "https://southerlymag.org/2021/09/30/community-owned-mobile-parks-keep-eviction-at-bay-can-they-work-in-north-carolina"
+   },
+   "more_sources": []
+  }
+ ],
+ "verified_facts": {
+  "osoh_status": {
+   "text": "Our State, Our Homes was an 18-month Carolina Across 100 program with 14 teams covering 22 counties. A March 18, 2026 program post says the teams held their final in-person meeting March 4-5, 2026, committed together to create or preserve 9,795 housing units over five years, and that webinars, coaching and technical assistance would run through June 2026, when the formal program ends; the teams' work is expected to continue after that. Carolina Across 100's final program, Our State, Our Future (10 teams, 19 counties), includes housing as a topic. We could not open the program page itself to confirm its late-2026 wording.",
+   "source_url": "https://carolinaacross100.unc.edu/checking-in-on-our-state-our-homes-part-2/"
+  },
+  "osoh_counties": ["Alexander", "Anson", "Ashe", "Buncombe", "Burke", "Caldwell", "Carteret", "Catawba", "Chatham", "Cumberland", "Dare", "Harnett", "Henderson", "Jackson", "Jones", "Lee", "Madison", "Rowan", "Sampson", "Transylvania", "Warren", "Watauga"],
+  "osoh_teams": [
+   {"counties": ["Jackson"]},
+   {"counties": ["Buncombe", "Henderson", "Madison", "Transylvania"]},
+   {"counties": ["Henderson"], "note": "City of Hendersonville"},
+   {"counties": ["Alexander", "Burke", "Caldwell", "Catawba"]},
+   {"counties": ["Ashe", "Watauga"]},
+   {"counties": ["Rowan"]},
+   {"counties": ["Anson"]},
+   {"counties": ["Chatham"]},
+   {"counties": ["Lee"]},
+   {"counties": ["Cumberland", "Harnett", "Sampson"]},
+   {"counties": ["Warren"]},
+   {"counties": ["Jones"]},
+   {"counties": ["Carteret"]},
+   {"counties": ["Dare"]}
+  ],
+  "osoh_counties_source_url": "https://www.ednc.org/unc-backed-carolina-across-100-announces-22-counties-for-our-state-our-homes-project/",
+  "hb1056": {
+   "text": "House Bill 1056, Relieving Housing Bottlenecks, was filed April 27, 2026 and referred on April 28, 2026 to House Appropriations, then Rules. The General Assembly's bill page shows no committee vote or later action, so it has not passed. As filed it would create a Workforce Housing Preconstruction Revolving Loan Program ($40 million, loans capped at $1 million, 80% to tier one and tier two counties), a $120 million Municipal Housing Approval Acceleration Program, by-right housing in commercial zones, and an end to minimum parking requirements.",
+   "source_url": "https://house.ncleg.gov/BillLookUp/2025/H1056"
+  },
+  "hb1072": {
+   "text": "House Bill 1072, Affordable Housing Infrastructure Development, was filed April 28, 2026 with bipartisan sponsors and referred on April 29, 2026 to House Housing and Development, then Appropriations, then Rules. The General Assembly's bill page shows no vote or later action, so it has not passed. As filed it would appropriate $50 million to the NC Housing Finance Agency for a revolving loan fund covering nonprofit developers' preconstruction costs such as land, surveys, grading and water and sewer work, with at least 40% of homes reserved for households at or below 80% of area median income.",
+   "source_url": "https://www.ncleg.gov/BillLookUp/Index/2025/H1072/True"
+  },
+  "eo36": {
+   "text": "Executive Order 36, signed by Governor Josh Stein on May 19, 2026, creates a Senior Advisor for Housing Policy in the Governor's Office (Janneke Ratcliffe) to lead a statewide housing strategy. It directs state agencies to prioritize housing access, creation and resilience in their policies and planning, sets a framework for agencies to align housing goals and coordinate programs, and directs them to use their data and technology to support local governments and builders. The Governor's summary lists no new funding, deadlines or numeric targets.",
+   "source_url": "https://governor.nc.gov/news/press-releases/2026/05/19/governor-stein-signs-executive-order-aimed-increasing-housing-opportunities-and-affordability-across"
+  },
+  "more_sources": {
+   "hb1056_summary": "https://lrs.sog.unc.edu/node/576093",
+   "hb1072_summary": "https://lrs.sog.unc.edu/node/576289",
+   "hb1072_news": "https://www.wunc.org/politics/2026-04-29/affordable-housing-bill-nc-house-proposes-50-million-fund",
+   "osoh_successor_program": "https://www.sog.unc.edu/node/368138"
+  }
+ }
+}

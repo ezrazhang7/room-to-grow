@@ -1,0 +1,1132 @@
+{
+ "source_notes": "All values from the Bowen National Research PDF (read via WebFetch; each gap number read at least twice with different prompts; no other sources used). Gaps: table 'Housing Gaps by Tenure and County - State of North Carolina (2024 to 2029)', pp. II-15/16; per tenure the columns are gap units, share of state, and 'Gap to Renter/Owner/Total Households Ratio' (stored as extra gap_to_*_households_pct fields; the total ratio equals total gap / 2029 projected households, NOT 2024). Households: table 'Total Households', pp. III-22/23, columns '2024 Estimated', '2029 Projected', 'Change 2024-2029 Percent' (hh_growth_pct). rental_gap_by_ami: 'Overall Rental Housing Gaps by County' pp. V-6/7, bands by Percent of Area Median Income (<=30%, 31%-50%, 51%-80%, 81%-120%, 121%-150%, 151%+), cross-checked against Addendum A '[County] County Housing Gap Estimates by Income (2024 to 2029)' row 'Total Rental Housing Gaps'. forsale_gap_by_price: 'Overall For-Sale Housing Gaps by County' pp. V-14/15 (same AMI bands) with each band's 'Price Range' row from the county's Addendum A table (pp. A-9 to A-12); the report publishes for-sale gaps by AMI band and the price range is the affordable home price for that band. multifamily_vacancy_pct: 'Surveyed Multifamily Rental Housing Supply by County' pp. IV-3 to IV-5, column 'Overall Vacancy Rate'; null where the report shows a dash because 0 projects were surveyed (Jones, Lenoir, Lincoln, Martin, Northampton, Onslow, Pamlico, Pender, Perquimans); several non-null values rest on tiny samples (e.g. Mitchell 1 project/24 units, Pasquotank 1/180, Madison 2/82). forsale_availability_pct and median_list_price: 'Available For-Sale Housing by County' (as of early July 2024) pp. IV-37/38, columns 'Availability Rate' and 'Median List Price'. Checks passed for all 23: rental+forsale=total; AMI bands sum to tenure totals; growth pct and total-gap ratio consistent with household counts. Caveats: households, vacancy, availability and median list price were each read once (but pass arithmetic checks where one exists); Mecklenburg and Orange lowest price-range labels came back without the '<=' sign, which was added here.",
+ "counties": {
+  "Jones": {
+   "rental_gap": 97,
+   "forsale_gap": 314,
+   "total_gap": 411,
+   "households_2024": 3853,
+   "households_2029": 3865,
+   "hh_growth_pct": 0.3,
+   "rental_gap_by_ami": {
+    "<=30%": 15,
+    "31-50%": 5,
+    "51-80%": 17,
+    "81-120%": 23,
+    "121-150%": 25,
+    "151%+": 12
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 1,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 31,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 69,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 156,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 57,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 254950,
+   "gap_to_renter_households_pct": 12.8,
+   "gap_to_owner_households_pct": 10.1,
+   "gap_to_total_households_pct": 10.6,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Lee": {
+   "rental_gap": 2646,
+   "forsale_gap": 4531,
+   "total_gap": 7177,
+   "households_2024": 26120,
+   "households_2029": 27626,
+   "hh_growth_pct": 5.8,
+   "rental_gap_by_ami": {
+    "<=30%": 534,
+    "31-50%": 437,
+    "51-80%": 747,
+    "81-120%": 535,
+    "121-150%": 296,
+    "151%+": 97
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 398,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 486,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 832,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 675,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 1172,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 968,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.2,
+   "forsale_availability_pct": 0.6,
+   "median_list_price": 398950,
+   "gap_to_renter_households_pct": 32.0,
+   "gap_to_owner_households_pct": 23.4,
+   "gap_to_total_households_pct": 26.0,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Lenoir": {
+   "rental_gap": 1616,
+   "forsale_gap": 1317,
+   "total_gap": 2933,
+   "households_2024": 22660,
+   "households_2029": 22548,
+   "hh_growth_pct": -0.5,
+   "rental_gap_by_ami": {
+    "<=30%": 652,
+    "31-50%": 233,
+    "51-80%": 234,
+    "81-120%": 151,
+    "121-150%": 237,
+    "151%+": 109
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 1,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 63,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 236,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 740,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 277,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 0.7,
+   "median_list_price": 202500,
+   "gap_to_renter_households_pct": 19.3,
+   "gap_to_owner_households_pct": 9.3,
+   "gap_to_total_households_pct": 13.0,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Lincoln": {
+   "rental_gap": 1511,
+   "forsale_gap": 5690,
+   "total_gap": 7201,
+   "households_2024": 37640,
+   "households_2029": 40816,
+   "hh_growth_pct": 8.4,
+   "rental_gap_by_ami": {
+    "<=30%": 505,
+    "31-50%": 119,
+    "51-80%": 118,
+    "81-120%": 287,
+    "121-150%": 340,
+    "151%+": 142
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$86,984"
+    },
+    "31-50%": {
+     "units": 40,
+     "price_range": "$86,985-$144,973"
+    },
+    "51-80%": {
+     "units": 587,
+     "price_range": "$144,974-$231,957"
+    },
+    "81-120%": {
+     "units": 1311,
+     "price_range": "$231,958-$347,935"
+    },
+    "121-150%": {
+     "units": 2760,
+     "price_range": "$347,936-$434,919"
+    },
+    "151%+": {
+     "units": 992,
+     "price_range": "$434,920+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 0.7,
+   "median_list_price": 469000,
+   "gap_to_renter_households_pct": 18.8,
+   "gap_to_owner_households_pct": 17.4,
+   "gap_to_total_households_pct": 17.6,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "McDowell": {
+   "rental_gap": 460,
+   "forsale_gap": 1679,
+   "total_gap": 2139,
+   "households_2024": 18407,
+   "households_2029": 18743,
+   "hh_growth_pct": 1.8,
+   "rental_gap_by_ami": {
+    "<=30%": 103,
+    "31-50%": 58,
+    "51-80%": 84,
+    "81-120%": 117,
+    "121-150%": 69,
+    "151%+": 29
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 7,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 110,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 284,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 927,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 351,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.8,
+   "forsale_availability_pct": 0.8,
+   "median_list_price": 414900,
+   "gap_to_renter_households_pct": 11.0,
+   "gap_to_owner_households_pct": 11.5,
+   "gap_to_total_households_pct": 11.4,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Macon": {
+   "rental_gap": 738,
+   "forsale_gap": 1491,
+   "total_gap": 2229,
+   "households_2024": 17248,
+   "households_2029": 17969,
+   "hh_growth_pct": 4.2,
+   "rental_gap_by_ami": {
+    "<=30%": 96,
+    "31-50%": 78,
+    "51-80%": 209,
+    "81-120%": 181,
+    "121-150%": 29,
+    "151%+": 145
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 29,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 36,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 160,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 670,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 167,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 429,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 2.2,
+   "median_list_price": 699000,
+   "gap_to_renter_households_pct": 20.2,
+   "gap_to_owner_households_pct": 10.4,
+   "gap_to_total_households_pct": 12.4,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Madison": {
+   "rental_gap": 171,
+   "forsale_gap": 1017,
+   "total_gap": 1188,
+   "households_2024": 9230,
+   "households_2029": 9488,
+   "hh_growth_pct": 2.8,
+   "rental_gap_by_ami": {
+    "<=30%": 56,
+    "31-50%": 15,
+    "51-80%": 28,
+    "81-120%": 36,
+    "121-150%": 25,
+    "151%+": 11
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$90,973"
+    },
+    "31-50%": {
+     "units": 7,
+     "price_range": "$90,974-$151,622"
+    },
+    "51-80%": {
+     "units": 119,
+     "price_range": "$151,623-$242,595"
+    },
+    "81-120%": {
+     "units": 248,
+     "price_range": "$242,596-$363,892"
+    },
+    "121-150%": {
+     "units": 472,
+     "price_range": "$363,893-$454,865"
+    },
+    "151%+": {
+     "units": 171,
+     "price_range": "$454,866+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 1.0,
+   "median_list_price": 507000,
+   "gap_to_renter_households_pct": 9.4,
+   "gap_to_owner_households_pct": 13.3,
+   "gap_to_total_households_pct": 12.5,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Martin": {
+   "rental_gap": 401,
+   "forsale_gap": 488,
+   "total_gap": 889,
+   "households_2024": 9343,
+   "households_2029": 9256,
+   "hh_growth_pct": -0.9,
+   "rental_gap_by_ami": {
+    "<=30%": 130,
+    "31-50%": 57,
+    "51-80%": 89,
+    "81-120%": 74,
+    "121-150%": 40,
+    "151%+": 11
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 34,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 103,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 256,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 95,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 0.7,
+   "median_list_price": 151500,
+   "gap_to_renter_households_pct": 14.7,
+   "gap_to_owner_households_pct": 7.5,
+   "gap_to_total_households_pct": 9.6,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Mecklenburg": {
+   "rental_gap": 68488,
+   "forsale_gap": 43140,
+   "total_gap": 111628,
+   "households_2024": 483450,
+   "households_2029": 519126,
+   "hh_growth_pct": 7.4,
+   "rental_gap_by_ami": {
+    "<=30%": 16670,
+    "31-50%": 8688,
+    "51-80%": 8766,
+    "81-120%": 15051,
+    "121-150%": 14492,
+    "151%+": 4821
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$103,135"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$103,136-$171,892"
+    },
+    "51-80%": {
+     "units": 2318,
+     "price_range": "$171,893-$275,027"
+    },
+    "81-120%": {
+     "units": 9392,
+     "price_range": "$275,028-$412,541"
+    },
+    "121-150%": {
+     "units": 23184,
+     "price_range": "$412,542-$515,676"
+    },
+    "151%+": {
+     "units": 8246,
+     "price_range": "$515,677+"
+    }
+   },
+   "multifamily_vacancy_pct": 5.3,
+   "forsale_availability_pct": 0.8,
+   "median_list_price": 439500,
+   "gap_to_renter_households_pct": 27.8,
+   "gap_to_owner_households_pct": 15.8,
+   "gap_to_total_households_pct": 21.5,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Mitchell": {
+   "rental_gap": 236,
+   "forsale_gap": 502,
+   "total_gap": 738,
+   "households_2024": 6684,
+   "households_2029": 6749,
+   "hh_growth_pct": 1.0,
+   "rental_gap_by_ami": {
+    "<=30%": 48,
+    "31-50%": 26,
+    "51-80%": 61,
+    "81-120%": 55,
+    "121-150%": 34,
+    "151%+": 12
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$74,238"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$74,239-$123,730"
+    },
+    "51-80%": {
+     "units": 32,
+     "price_range": "$123,731-$197,968"
+    },
+    "81-120%": {
+     "units": 95,
+     "price_range": "$197,969-$296,951"
+    },
+    "121-150%": {
+     "units": 272,
+     "price_range": "$296,952-$371,189"
+    },
+    "151%+": {
+     "units": 103,
+     "price_range": "$371,190+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 1.2,
+   "median_list_price": 445000,
+   "gap_to_renter_households_pct": 16.7,
+   "gap_to_owner_households_pct": 9.4,
+   "gap_to_total_households_pct": 10.9,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Montgomery": {
+   "rental_gap": 600,
+   "forsale_gap": 1442,
+   "total_gap": 2042,
+   "households_2024": 10311,
+   "households_2029": 10305,
+   "hh_growth_pct": -0.1,
+   "rental_gap_by_ami": {
+    "<=30%": 130,
+    "31-50%": 106,
+    "51-80%": 163,
+    "81-120%": 108,
+    "121-150%": 66,
+    "151%+": 27
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 126,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 154,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 248,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 247,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 375,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 292,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.8,
+   "forsale_availability_pct": 2.1,
+   "median_list_price": 179900,
+   "gap_to_renter_households_pct": 24.5,
+   "gap_to_owner_households_pct": 18.4,
+   "gap_to_total_households_pct": 19.8,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Moore": {
+   "rental_gap": 1916,
+   "forsale_gap": 5808,
+   "total_gap": 7724,
+   "households_2024": 45360,
+   "households_2029": 48498,
+   "hh_growth_pct": 6.9,
+   "rental_gap_by_ami": {
+    "<=30%": 536,
+    "31-50%": 439,
+    "51-80%": 453,
+    "81-120%": 152,
+    "121-150%": 208,
+    "151%+": 128
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 252,
+     "price_range": "<=$96,811"
+    },
+    "31-50%": {
+     "units": 309,
+     "price_range": "$96,812-$161,351"
+    },
+    "51-80%": {
+     "units": 1157,
+     "price_range": "$161,352-$258,162"
+    },
+    "81-120%": {
+     "units": 1082,
+     "price_range": "$258,163-$387,243"
+    },
+    "121-150%": {
+     "units": 1805,
+     "price_range": "$387,244-$484,054"
+    },
+    "151%+": {
+     "units": 1203,
+     "price_range": "$484,055+"
+    }
+   },
+   "multifamily_vacancy_pct": 4.6,
+   "forsale_availability_pct": 1.0,
+   "median_list_price": 500000,
+   "gap_to_renter_households_pct": 17.9,
+   "gap_to_owner_households_pct": 15.4,
+   "gap_to_total_households_pct": 15.9,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Nash": {
+   "rental_gap": 1656,
+   "forsale_gap": 3959,
+   "total_gap": 5615,
+   "households_2024": 40014,
+   "households_2029": 40823,
+   "hh_growth_pct": 2.0,
+   "rental_gap_by_ami": {
+    "<=30%": 341,
+    "31-50%": 74,
+    "51-80%": 220,
+    "81-120%": 355,
+    "121-150%": 452,
+    "151%+": 214
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 4,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 199,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 608,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 2271,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 877,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 1.5,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 264950,
+   "gap_to_renter_households_pct": 12.8,
+   "gap_to_owner_households_pct": 14.2,
+   "gap_to_total_households_pct": 13.8,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "New Hanover": {
+   "rental_gap": 10820,
+   "forsale_gap": 10836,
+   "total_gap": 21656,
+   "households_2024": 105255,
+   "households_2029": 112405,
+   "hh_growth_pct": 6.8,
+   "rental_gap_by_ami": {
+    "<=30%": 3611,
+    "31-50%": 1856,
+    "51-80%": 1518,
+    "81-120%": 1609,
+    "121-150%": 1596,
+    "151%+": 630
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$96,519"
+    },
+    "31-50%": {
+     "units": 32,
+     "price_range": "$96,520-$160,865"
+    },
+    "51-80%": {
+     "units": 949,
+     "price_range": "$160,866-$257,384"
+    },
+    "81-120%": {
+     "units": 2444,
+     "price_range": "$257,385-$386,076"
+    },
+    "121-150%": {
+     "units": 5431,
+     "price_range": "$386,077-$482,595"
+    },
+    "151%+": {
+     "units": 1980,
+     "price_range": "$482,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 4.9,
+   "forsale_availability_pct": 1.1,
+   "median_list_price": 549000,
+   "gap_to_renter_households_pct": 24.1,
+   "gap_to_owner_households_pct": 16.0,
+   "gap_to_total_households_pct": 19.3,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Northampton": {
+   "rental_gap": 112,
+   "forsale_gap": 614,
+   "total_gap": 726,
+   "households_2024": 7569,
+   "households_2029": 7340,
+   "hh_growth_pct": -3.0,
+   "rental_gap_by_ami": {
+    "<=30%": 35,
+    "31-50%": 21,
+    "51-80%": 12,
+    "81-120%": 20,
+    "121-150%": 16,
+    "151%+": 8
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 71,
+     "price_range": "<=$71,319"
+    },
+    "31-50%": {
+     "units": 12,
+     "price_range": "$71,320-$118,865"
+    },
+    "51-80%": {
+     "units": 62,
+     "price_range": "$118,866-$190,184"
+    },
+    "81-120%": {
+     "units": 109,
+     "price_range": "$190,185-$285,276"
+    },
+    "121-150%": {
+     "units": 258,
+     "price_range": "$285,277-$356,595"
+    },
+    "151%+": {
+     "units": 102,
+     "price_range": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 260000,
+   "gap_to_renter_households_pct": 6.4,
+   "gap_to_owner_households_pct": 11.0,
+   "gap_to_total_households_pct": 9.9,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Onslow": {
+   "rental_gap": 5031,
+   "forsale_gap": 7132,
+   "total_gap": 12163,
+   "households_2024": 73780,
+   "households_2029": 78220,
+   "hh_growth_pct": 6.0,
+   "rental_gap_by_ami": {
+    "<=30%": 1419,
+    "31-50%": 589,
+    "51-80%": 514,
+    "81-120%": 830,
+    "121-150%": 1120,
+    "151%+": 559
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$74,141"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$74,142-$123,568"
+    },
+    "51-80%": {
+     "units": 267,
+     "price_range": "$123,569-$197,708"
+    },
+    "81-120%": {
+     "units": 954,
+     "price_range": "$197,709-$296,562"
+    },
+    "121-150%": {
+     "units": 4248,
+     "price_range": "$296,563-$370,703"
+    },
+    "151%+": {
+     "units": 1663,
+     "price_range": "$370,704+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 1.2,
+   "median_list_price": 348000,
+   "gap_to_renter_households_pct": 18.3,
+   "gap_to_owner_households_pct": 14.1,
+   "gap_to_total_households_pct": 15.5,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Orange": {
+   "rental_gap": 7557,
+   "forsale_gap": 6132,
+   "total_gap": 13689,
+   "households_2024": 59030,
+   "households_2029": 61383,
+   "hh_growth_pct": 4.0,
+   "rental_gap_by_ami": {
+    "<=30%": 2474,
+    "31-50%": 962,
+    "51-80%": 1031,
+    "81-120%": 1243,
+    "121-150%": 1275,
+    "151%+": 572
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$103,038"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$103,039-$171,730"
+    },
+    "51-80%": {
+     "units": 305,
+     "price_range": "$171,731-$274,768"
+    },
+    "81-120%": {
+     "units": 1305,
+     "price_range": "$274,769-$412,151"
+    },
+    "121-150%": {
+     "units": 3335,
+     "price_range": "$412,152-$515,189"
+    },
+    "151%+": {
+     "units": 1187,
+     "price_range": "$515,190+"
+    }
+   },
+   "multifamily_vacancy_pct": 5.7,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 598500,
+   "gap_to_renter_households_pct": 31.3,
+   "gap_to_owner_households_pct": 16.5,
+   "gap_to_total_households_pct": 22.3,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Pamlico": {
+   "rental_gap": 101,
+   "forsale_gap": 545,
+   "total_gap": 646,
+   "households_2024": 5253,
+   "households_2029": 5351,
+   "hh_growth_pct": 1.9,
+   "rental_gap_by_ami": {
+    "<=30%": 6,
+    "31-50%": 2,
+    "51-80%": 25,
+    "81-120%": 25,
+    "121-150%": 28,
+    "151%+": 15
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$76,865"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$76,866-$128,108"
+    },
+    "51-80%": {
+     "units": 33,
+     "price_range": "$128,109-$204,973"
+    },
+    "81-120%": {
+     "units": 102,
+     "price_range": "$204,974-$307,459"
+    },
+    "121-150%": {
+     "units": 294,
+     "price_range": "$307,460-$384,324"
+    },
+    "151%+": {
+     "units": 116,
+     "price_range": "$384,325+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 1.4,
+   "median_list_price": 465000,
+   "gap_to_renter_households_pct": 10.8,
+   "gap_to_owner_households_pct": 12.3,
+   "gap_to_total_households_pct": 12.1,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Pasquotank": {
+   "rental_gap": 820,
+   "forsale_gap": 1376,
+   "total_gap": 2196,
+   "households_2024": 16035,
+   "households_2029": 16413,
+   "hh_growth_pct": 2.4,
+   "rental_gap_by_ami": {
+    "<=30%": 224,
+    "31-50%": 88,
+    "51-80%": 80,
+    "81-120%": 131,
+    "121-150%": 193,
+    "151%+": 104
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$79,784"
+    },
+    "31-50%": {
+     "units": 10,
+     "price_range": "$79,785-$132,973"
+    },
+    "51-80%": {
+     "units": 105,
+     "price_range": "$132,974-$212,757"
+    },
+    "81-120%": {
+     "units": 238,
+     "price_range": "$212,758-$319,135"
+    },
+    "121-150%": {
+     "units": 744,
+     "price_range": "$319,136-$398,919"
+    },
+    "151%+": {
+     "units": 279,
+     "price_range": "$398,920+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 0.7,
+   "median_list_price": 299900,
+   "gap_to_renter_households_pct": 15.0,
+   "gap_to_owner_households_pct": 12.6,
+   "gap_to_total_households_pct": 13.4,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Pender": {
+   "rental_gap": 1767,
+   "forsale_gap": 3616,
+   "total_gap": 5383,
+   "households_2024": 25676,
+   "households_2029": 28302,
+   "hh_growth_pct": 10.2,
+   "rental_gap_by_ami": {
+    "<=30%": 492,
+    "31-50%": 240,
+    "51-80%": 329,
+    "81-120%": 318,
+    "121-150%": 273,
+    "151%+": 115
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$88,832"
+    },
+    "31-50%": {
+     "units": 75,
+     "price_range": "$88,833-$148,054"
+    },
+    "51-80%": {
+     "units": 563,
+     "price_range": "$148,055-$236,886"
+    },
+    "81-120%": {
+     "units": 807,
+     "price_range": "$236,887-$355,330"
+    },
+    "121-150%": {
+     "units": 1602,
+     "price_range": "$355,331-$444,162"
+    },
+    "151%+": {
+     "units": 569,
+     "price_range": "$444,163+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 1.0,
+   "median_list_price": 585000,
+   "gap_to_renter_households_pct": 32.1,
+   "gap_to_owner_households_pct": 15.9,
+   "gap_to_total_households_pct": 19.0,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Perquimans": {
+   "rental_gap": 177,
+   "forsale_gap": 459,
+   "total_gap": 636,
+   "households_2024": 5685,
+   "households_2029": 5796,
+   "hh_growth_pct": 2.0,
+   "rental_gap_by_ami": {
+    "<=30%": 50,
+    "31-50%": 13,
+    "51-80%": 19,
+    "81-120%": 40,
+    "121-150%": 38,
+    "151%+": 17
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$74,043"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$74,044-$123,405"
+    },
+    "51-80%": {
+     "units": 14,
+     "price_range": "$123,406-$197,449"
+    },
+    "81-120%": {
+     "units": 71,
+     "price_range": "$197,450-$296,173"
+    },
+    "121-150%": {
+     "units": 269,
+     "price_range": "$296,174-$370,216"
+    },
+    "151%+": {
+     "units": 105,
+     "price_range": "$370,217+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 1.2,
+   "median_list_price": 439000,
+   "gap_to_renter_households_pct": 14.3,
+   "gap_to_owner_households_pct": 10.1,
+   "gap_to_total_households_pct": 11.0,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Person": {
+   "rental_gap": 697,
+   "forsale_gap": 1407,
+   "total_gap": 2104,
+   "households_2024": 16514,
+   "households_2029": 16837,
+   "hh_growth_pct": 2.0,
+   "rental_gap_by_ami": {
+    "<=30%": 158,
+    "31-50%": 130,
+    "51-80%": 148,
+    "81-120%": 124,
+    "121-150%": 117,
+    "151%+": 20
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$76,378"
+    },
+    "31-50%": {
+     "units": 0,
+     "price_range": "$76,379-$127,297"
+    },
+    "51-80%": {
+     "units": 173,
+     "price_range": "$127,298-$203,676"
+    },
+    "81-120%": {
+     "units": 271,
+     "price_range": "$203,677-$305,514"
+    },
+    "121-150%": {
+     "units": 554,
+     "price_range": "$305,515-$381,892"
+    },
+    "151%+": {
+     "units": 409,
+     "price_range": "$381,893+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 0.6,
+   "median_list_price": 350000,
+   "gap_to_renter_households_pct": 18.0,
+   "gap_to_owner_households_pct": 10.8,
+   "gap_to_total_households_pct": 12.5,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  },
+  "Pitt": {
+   "rental_gap": 6470,
+   "forsale_gap": 6349,
+   "total_gap": 12819,
+   "households_2024": 72681,
+   "households_2029": 75428,
+   "hh_growth_pct": 3.8,
+   "rental_gap_by_ami": {
+    "<=30%": 2557,
+    "31-50%": 478,
+    "51-80%": 484,
+    "81-120%": 1242,
+    "121-150%": 1159,
+    "151%+": 550
+   },
+   "forsale_gap_by_price": {
+    "<=30%": {
+     "units": 0,
+     "price_range": "<=$80,270"
+    },
+    "31-50%": {
+     "units": 13,
+     "price_range": "$80,271-$133,784"
+    },
+    "51-80%": {
+     "units": 348,
+     "price_range": "$133,785-$214,054"
+    },
+    "81-120%": {
+     "units": 1129,
+     "price_range": "$214,055-$321,081"
+    },
+    "121-150%": {
+     "units": 3539,
+     "price_range": "$321,082-$401,351"
+    },
+    "151%+": {
+     "units": 1320,
+     "price_range": "$401,352+"
+    }
+   },
+   "multifamily_vacancy_pct": 6.1,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 284000,
+   "gap_to_renter_households_pct": 19.7,
+   "gap_to_owner_households_pct": 14.9,
+   "gap_to_total_households_pct": 17.0,
+   "source_url": "https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf"
+  }
+ }
+}

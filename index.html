@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Room to Grow</title>
+<meta name="description" content="The housing gap, building pace and local options for each of North Carolina's 100 counties.">
+<meta property="og:title" content="Room to Grow">
+<meta property="og:description" content="The housing gap, building pace and local options for each of North Carolina's 100 counties.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f6b4f'/%3E%3Cpath d='M7 17 16 9l9 8v8H7z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <h1>Room to Grow</h1>
+      <p>The housing gap in each of North Carolina's 100 counties, and what places like yours are doing about it.</p>
+    </div>
+    <div class="find">
+      <label for="county-search">Find a county</label>
+      <input id="county-search" list="county-list" placeholder="Type a county name" autocomplete="off">
+      <datalist id="county-list"></datalist>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="explore" aria-label="Map and summary">
+      <div class="map-col">
+        <div class="bar">
+          <label class="field">Color the map by
+            <select id="metric-select">
+              <option value="gap_pct_hh">Homes short per 100 households</option>
+              <option value="total_gap">Homes short by 2029</option>
+              <option value="pace_pct">Permits as a share of yearly need</option>
+              <option value="hh_growth_pct">Household growth, 2024 to 2029</option>
+              <option value="rent_burden_pct">Renters paying 30% or more of income</option>
+              <option value="median_home_value">Median home value</option>
+              <option value="distressed_units">Distressed water and sewer systems</option>
+            </select>
+          </label>
+          <div class="legend" id="map-legend"></div>
+          <button type="button" class="ghost" id="panel-toggle" aria-expanded="true" aria-controls="panel">Hide panel</button>
+        </div>
+        <div class="map" id="map"></div>
+      </div>
+
+      <aside class="panel" id="panel">
+        <div id="panel-state">
+          <p class="eyebrow">North Carolina</p>
+          <p class="big" id="st-total">—</p>
+          <p class="big-sub">homes short by 2029 · <span id="st-rental">—</span> to rent · <span id="st-forsale">—</span> to buy</p>
+          <div class="donut-row">
+            <div class="donut" id="donut"></div>
+            <ul class="donut-key" id="donut-key"></ul>
+          </div>
+          <details class="more" id="class-facts-wrap">
+            <summary>How the three kinds of county compare</summary>
+            <div id="class-facts"></div>
+          </details>
+          <p class="hint">Select a county on the map to see its numbers.</p>
+        </div>
+
+        <div id="panel-county" hidden>
+          <p class="eyebrow" id="c-kind">—</p>
+          <h2 class="c-name"><span id="c-name">—</span> County</h2>
+          <div class="chips" id="c-chips"></div>
+          <div class="stats" id="c-stats"></div>
+          <div class="pills" id="c-pills"></div>
+          <div class="panel-actions">
+            <button type="button" class="solid" id="to-profile">Full profile</button>
+            <button type="button" class="ghost" id="to-state">Back to statewide</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="block" id="profile-sec" hidden>
+      <h2 class="h2"><span id="p-name">—</span> County in detail</h2>
+      <div class="two">
+        <figure class="card">
+          <figcaption id="bands-title">Who the missing homes are for</figcaption>
+          <div class="chart" id="bands"></div>
+          <p class="src"><span class="key"><i class="k1"></i>Rental</span><span class="key"><i class="k2"></i>For sale</span> By household income as a share of area median income (AMI). Bowen National Research, 2024.</p>
+        </figure>
+        <figure class="card">
+          <figcaption id="permits-title">Homes permitted each year</figcaption>
+          <div class="chart" id="permits"></div>
+          <p class="src">Housing units in building permits. Census Building Permits Survey, 2021 to 2025.</p>
+        </figure>
+      </div>
+
+      <details class="more card">
+        <summary>More numbers for this county</summary>
+        <dl class="facts" id="facts"></dl>
+      </details>
+
+      <h3 class="h3">Next to its peers</h3>
+      <div class="card scroll">
+        <table class="table" id="peers">
+          <thead><tr>
+            <th>County</th><th>Households</th><th>Homes short</th><th>Short per 100 households</th><th>Household growth</th><th>Permits vs. need</th><th>Median home value</th><th>Renters paying 30%+</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3 class="h3">What may be holding building back</h3>
+      <ul class="flags" id="flags"></ul>
+      <details class="more">
+        <summary>All seven checks and how they work</summary>
+        <ul class="flags" id="flags-all"></ul>
+      </details>
+    </section>
+
+    <section class="block" id="approaches">
+      <div class="block-head">
+        <h2 class="h2" id="approaches-title">What North Carolina places are doing</h2>
+        <div class="bar">
+          <label class="field">Barrier
+            <select id="barrier-select">
+              <option value="auto">Flagged for this county</option>
+              <option value="all">All</option>
+              <option value="infrastructure">Water, sewer and roads</option>
+              <option value="financing-gap">Projects that do not pencil out</option>
+              <option value="land-and-zoning">Land and zoning</option>
+              <option value="local-capacity">Local staff and know-how</option>
+              <option value="aging-stock">Aging homes</option>
+              <option value="cost-burden">Costs against incomes</option>
+              <option value="displacement">Displacement</option>
+              <option value="construction-workforce">Construction workforce</option>
+            </select>
+          </label>
+          <label class="field">Kind of place
+            <select id="setting-select">
+              <option value="auto">Like this county</option>
+              <option value="any">Any</option>
+              <option value="rural">Rural</option>
+              <option value="suburban">Suburban</option>
+              <option value="urban">Urban</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <h3 class="h3">Approaches a local government can start</h3>
+      <div class="cards" id="strategies"></div>
+      <h3 class="h3">Projects on the ground</h3>
+      <div class="cards" id="cases"></div>
+    </section>
+
+    <section class="block" id="policy">
+      <h2 class="h2">State policy to watch</h2>
+      <div class="cards policy">
+        <article class="card pol">
+          <div class="pol-top"><span class="tag tag-done">Signed</span><time>May 19, 2026</time></div>
+          <h3>Executive Order 36</h3>
+          <p>Creates a Senior Advisor for Housing Policy and tells state agencies to align housing goals and share data with local governments. No new funding.</p>
+          <a href="https://governor.nc.gov/news/press-releases/2026/05/19/governor-stein-signs-executive-order-aimed-increasing-housing-opportunities-and-affordability-across" target="_blank" rel="noopener">Governor's office</a>
+        </article>
+        <article class="card pol">
+          <div class="pol-top"><span class="tag tag-wait">In committee</span><time>Filed April 27, 2026</time></div>
+          <h3>House Bill 1056</h3>
+          <p>$40 million in preconstruction loans for workforce housing, 80% reserved for tier 1 and tier 2 counties, plus $120 million to speed local approvals.</p>
+          <a href="https://house.ncleg.gov/BillLookUp/2025/H1056" target="_blank" rel="noopener">NC General Assembly</a>
+        </article>
+        <article class="card pol">
+          <div class="pol-top"><span class="tag tag-wait">In committee</span><time>Filed April 28, 2026</time></div>
+          <h3>House Bill 1072</h3>
+          <p>$50 million revolving loan fund for nonprofit developers' land, grading and water and sewer costs, run by the NC Housing Finance Agency.</p>
+          <a href="https://www.ncleg.gov/BillLookUp/Index/2025/H1072/True" target="_blank" rel="noopener">NC General Assembly</a>
+        </article>
+        <article class="card pol">
+          <div class="pol-top"><span class="tag tag-end">Program ended</span><time>June 2026</time></div>
+          <h3>Our State, Our Homes</h3>
+          <p>Teams in 22 counties pledged to create or preserve 9,795 homes over five years. Their work continues without formal program support.</p>
+          <a href="https://carolinaacross100.unc.edu/checking-in-on-our-state-our-homes-part-2/" target="_blank" rel="noopener">Carolina Across 100</a>
+        </article>
+      </div>
+      <p class="src">Status as of November 2026.</p>
+    </section>
+  </main>
+
+  <footer class="foot" id="appendix">
+    <div class="foot-grid">
+      <div>
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://ncchamber.com/wp-content/uploads/Housing_Supply_Gap_Analysis.pdf" target="_blank" rel="noopener">2024 Housing Supply Gap Analysis</a>, Bowen National Research for the NC Chamber Foundation, NC Home Builders Association and NC REALTORS: homes short, households, vacancy, list prices.</li>
+          <li>U.S. Census Bureau, American Community Survey 2020 to 2024: rent, home value, income, renter costs, mobile homes, year built.</li>
+          <li>U.S. Census Bureau, Building Permits Survey, county files 2021 to 2025: permits.</li>
+          <li><a href="https://nchousing.org/county-fact-sheets/" target="_blank" rel="noopener">NC Housing Coalition 2026 county profiles</a>: fair market rent, housing wage, eviction filings.</li>
+          <li><a href="https://deq.nc.gov/about/divisions/water-infrastructure/viable-utilities" target="_blank" rel="noopener">NC DEQ Viable Utilities</a>, February 2026 list: distressed water and sewer systems.</li>
+          <li>NC Department of Commerce 2026 development tiers; NC Rural Center density rule; NC regional councils of government.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Definitions</h4>
+        <ul>
+          <li><b>Homes short:</b> additional homes the Bowen study projects a county needs between 2024 and 2029.</li>
+          <li><b>Permits as a share of yearly need:</b> average homes permitted per year in 2023 to 2025, divided by one fifth of the five-year gap.</li>
+          <li><b>AMI:</b> area median income. A household at 80% of AMI earns four fifths of the middle income for its area.</li>
+          <li><b>Kind of county:</b> rural is 250 people per square mile or fewer on the 2020 Census, regional city or suburban is 250 to 750, urban is more than 750.</li>
+          <li><b>Peers:</b> the five counties of the same kind with the closest number of households.</li>
+          <li><b>Distressed system:</b> a local water or sewer utility the state has designated as struggling to pay for upkeep and expansion.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Limits</h4>
+        <ul>
+          <li>The gap was modeled before Hurricane Helene and does not count homes lost in western North Carolina.</li>
+          <li>A county where no permit office reports shows zero permits, so very low figures can reflect reporting.</li>
+          <li>Permits also replace demolished homes, so the pace figure is a rough check.</li>
+          <li>Survey figures for small counties have wide margins of error.</li>
+          <li>The seven checks use cut-offs chosen for this site. They sort counties for a first look and are not findings of the sources.</li>
+          <li>A blank in a project card means the source did not state the figure.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="credit">Room to Grow · Ezra Zhang, UNC-Chapel Hill · Built for the Carolina Across 100 student fellowship, ncIMPACT Initiative, UNC School of Government · Data as of November 2026 · <a href="source/build.py">How the data was assembled</a></p>
+  </footer>
+</div>
+<script src="d3.min.js"></script>
+<script src="geo.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1030 @@
+{
+ "source_notes": "All values from Bowen National Research, '2024 Housing Supply Gap Analysis, State of North Carolina', read from the City of Hendersonville mirror of the full PDF (ncchamber.com URL was blocked in this session). No news/secondary sources used. GAPS: table 'Housing Gaps by Tenure and County - State of North Carolina (2024 to 2029)' (pp. II-15 to II-17), columns 'Total Rental Gap', 'Total For-Sale Gap', 'Total Gap', each with 'Share of State' and 'Gap to Renter/Owner/Total Households Ratio' (stored as *_gap_to_*_hh_pct). HOUSEHOLDS: table 'Total Households' (pp. III-23 to III-24), columns '2024 Estimated', '2029 Projected', 'Change 2024-2029' (number, percent) -> hh_growth_pct is the printed percent. rental_gap_by_ami: 'Overall Rental Housing Gaps - State of North Carolina (2024 to 2029)' (pp. V-5 to V-7), columns by percent of Area Median Income <30%, 31%-50%, 51%-80%, 81%-120%, 121%-150%, 151%+; cross-checked against Addendum A rows 'Total Rental Housing Gaps'. forsale_gap_by_price: the report gives the for-sale gap by AMI band, not by fixed price point: 'Overall For-Sale Housing Gaps' (pp. V-13 to V-15) = by_ami; price_range_for_ami_band is the county-specific 'Price Range' row from Addendum A '[COUNTY] COUNTY Housing Gap Estimates by Income (2024 to 2029)' (pp. A-5 to A-9), i.e. the home price affordable to each band. Price ranges differ by county. Gaston's first band printed/extracted without the '≤' sign; '≤' added here. multifamily_vacancy_pct: 'Surveyed Multifamily Rental Housing Supply by County' (pp. IV-4 to IV-6), column 'Overall Vacancy Rate' (all surveyed market-rate + Tax Credit + government-subsidized projects; physical vacancies only). null = 0 projects surveyed in that county (printed '-'), NOT a 0% rate. Small samples in some counties (e.g. Hertford 1 project/48 units, Franklin 2 projects). forsale_availability_pct and median_list_price: 'Available For-Sale Housing by County (As of Early July 2024)' (pp. IV-36 to IV-38), columns 'Availability Rate' ('the comparison of available units to overall owner-occupied housing supply') and 'Median List Price'. Validation: every county read twice with differently worded extractions; rental+forsale=total, AMI bands sum to tenure totals, and printed growth % matches 2024/2029 households for all 25.",
+ "counties": {
+  "Currituck": {
+   "rental_gap": 321,
+   "forsale_gap": 2104,
+   "total_gap": 2425,
+   "households_2024": 12241,
+   "households_2029": 13630,
+   "hh_growth_pct": 11.3,
+   "rental_gap_by_ami": {
+    "<=30%": 71,
+    "31-50%": 39,
+    "51-80%": 53,
+    "81-120%": 69,
+    "121-150%": 64,
+    "151%+": 25
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 1,
+     "31-50%": 44,
+     "51-80%": 351,
+     "81-120%": 587,
+     "121-150%": 844,
+     "151%+": 277
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$97,978",
+     "31-50%": "$97,979-$163,297",
+     "51-80%": "$163,298-$261,276",
+     "81-120%": "$261,277-$391,914",
+     "121-150%": "$391,915-$489,892",
+     "151%+": "$489,893+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 1.8,
+   "median_list_price": 725000,
+   "rental_gap_to_renter_hh_pct": 18.7,
+   "forsale_gap_to_owner_hh_pct": 17.7,
+   "total_gap_to_total_hh_pct": 17.8,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Dare": {
+   "rental_gap": 696,
+   "forsale_gap": 1836,
+   "total_gap": 2532,
+   "households_2024": 16867,
+   "households_2029": 17590,
+   "hh_growth_pct": 4.3,
+   "rental_gap_by_ami": {
+    "<=30%": 155,
+    "31-50%": 76,
+    "51-80%": 141,
+    "81-120%": 148,
+    "121-150%": 131,
+    "151%+": 45
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 144,
+     "81-120%": 411,
+     "121-150%": 936,
+     "151%+": 345
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$89,319",
+     "31-50%": "$89,320-$148,865",
+     "51-80%": "$148,866-$238,184",
+     "81-120%": "$238,185-$357,276",
+     "121-150%": "$357,277-$446,595",
+     "151%+": "$446,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 3.2,
+   "median_list_price": 707500,
+   "rental_gap_to_renter_hh_pct": 20.7,
+   "forsale_gap_to_owner_hh_pct": 12.9,
+   "total_gap_to_total_hh_pct": 14.4,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Davidson": {
+   "rental_gap": 3324,
+   "forsale_gap": 7097,
+   "total_gap": 10421,
+   "households_2024": 70757,
+   "households_2029": 73033,
+   "hh_growth_pct": 3.2,
+   "rental_gap_by_ami": {
+    "<=30%": 709,
+    "31-50%": 580,
+    "51-80%": 930,
+    "81-120%": 606,
+    "121-150%": 382,
+    "151%+": 117
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 129,
+     "31-50%": 157,
+     "51-80%": 1028,
+     "81-120%": 1161,
+     "121-150%": 2450,
+     "151%+": 2172
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$74,043",
+     "31-50%": "$74,044-$123,405",
+     "51-80%": "$123,406-$197,449",
+     "81-120%": "$197,450-$296,173",
+     "121-150%": "$296,174-$370,216",
+     "151%+": "$370,217+"
+    }
+   },
+   "multifamily_vacancy_pct": 3.6,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 346374,
+   "rental_gap_to_renter_hh_pct": 19.1,
+   "forsale_gap_to_owner_hh_pct": 12.8,
+   "total_gap_to_total_hh_pct": 14.3,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Davie": {
+   "rental_gap": 719,
+   "forsale_gap": 2405,
+   "total_gap": 3124,
+   "households_2024": 18064,
+   "households_2029": 18746,
+   "hh_growth_pct": 3.8,
+   "rental_gap_by_ami": {
+    "<=30%": 153,
+    "31-50%": 125,
+    "51-80%": 178,
+    "81-120%": 83,
+    "121-150%": 141,
+    "151%+": 39
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 61,
+     "31-50%": 75,
+     "51-80%": 351,
+     "81-120%": 437,
+     "121-150%": 839,
+     "151%+": 642
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$79,686",
+     "31-50%": "$79,687-$132,811",
+     "51-80%": "$132,812-$212,497",
+     "81-120%": "$212,498-$318,746",
+     "121-150%": "$318,747-$398,432",
+     "151%+": "$398,433+"
+    }
+   },
+   "multifamily_vacancy_pct": 11.4,
+   "forsale_availability_pct": 0.4,
+   "median_list_price": 284900,
+   "rental_gap_to_renter_hh_pct": 19.8,
+   "forsale_gap_to_owner_hh_pct": 15.9,
+   "total_gap_to_total_hh_pct": 16.7,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Duplin": {
+   "rental_gap": 766,
+   "forsale_gap": 1322,
+   "total_gap": 2088,
+   "households_2024": 18889,
+   "households_2029": 18827,
+   "hh_growth_pct": -0.3,
+   "rental_gap_by_ami": {
+    "<=30%": 331,
+    "31-50%": 71,
+    "51-80%": 85,
+    "81-120%": 138,
+    "121-150%": 107,
+    "151%+": 34
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 76,
+     "81-120%": 252,
+     "121-150%": 724,
+     "151%+": 270
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$71,319",
+     "31-50%": "$71,320-$118,865",
+     "51-80%": "$118,866-$190,184",
+     "81-120%": "$190,185-$285,276",
+     "121-150%": "$285,277-$356,595",
+     "151%+": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 0.6,
+   "median_list_price": 361500,
+   "rental_gap_to_renter_hh_pct": 15.2,
+   "forsale_gap_to_owner_hh_pct": 9.6,
+   "total_gap_to_total_hh_pct": 11.1,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Durham": {
+   "rental_gap": 17699,
+   "forsale_gap": 15293,
+   "total_gap": 32992,
+   "households_2024": 144546,
+   "households_2029": 154443,
+   "hh_growth_pct": 6.8,
+   "rental_gap_by_ami": {
+    "<=30%": 4679,
+    "31-50%": 2546,
+    "51-80%": 2375,
+    "81-120%": 4323,
+    "121-150%": 2878,
+    "151%+": 898
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 39,
+     "51-80%": 1418,
+     "81-120%": 4205,
+     "121-150%": 7204,
+     "151%+": 2427
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$103,038",
+     "31-50%": "$103,039-$171,730",
+     "51-80%": "$171,731-$274,768",
+     "81-120%": "$274,769-$412,151",
+     "121-150%": "$412,152-$515,189",
+     "151%+": "$515,190+"
+    }
+   },
+   "multifamily_vacancy_pct": 5.8,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 439000,
+   "rental_gap_to_renter_hh_pct": 24.7,
+   "forsale_gap_to_owner_hh_pct": 18.5,
+   "total_gap_to_total_hh_pct": 21.4,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Edgecombe": {
+   "rental_gap": 1145,
+   "forsale_gap": 1177,
+   "total_gap": 2322,
+   "households_2024": 19690,
+   "households_2029": 19566,
+   "hh_growth_pct": -0.6,
+   "rental_gap_by_ami": {
+    "<=30%": 395,
+    "31-50%": 87,
+    "51-80%": 154,
+    "81-120%": 212,
+    "121-150%": 221,
+    "151%+": 76
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 54,
+     "81-120%": 184,
+     "121-150%": 678,
+     "151%+": 261
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$71,319",
+     "31-50%": "$71,320-$118,865",
+     "51-80%": "$118,866-$190,184",
+     "81-120%": "$190,185-$285,276",
+     "121-150%": "$285,277-$356,595",
+     "151%+": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.1,
+   "forsale_availability_pct": 0.8,
+   "median_list_price": 174900,
+   "rental_gap_to_renter_hh_pct": 15.4,
+   "forsale_gap_to_owner_hh_pct": 9.7,
+   "total_gap_to_total_hh_pct": 11.9,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Forsyth": {
+   "rental_gap": 10848,
+   "forsale_gap": 14503,
+   "total_gap": 25351,
+   "households_2024": 163070,
+   "households_2029": 168749,
+   "hh_growth_pct": 3.5,
+   "rental_gap_by_ami": {
+    "<=30%": 2398,
+    "31-50%": 1962,
+    "51-80%": 2529,
+    "81-120%": 1329,
+    "121-150%": 2122,
+    "151%+": 508
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 1063,
+     "81-120%": 2103,
+     "121-150%": 6337,
+     "151%+": 5000
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$79,686",
+     "31-50%": "$79,687-$132,811",
+     "51-80%": "$132,812-$212,497",
+     "81-120%": "$212,498-$318,746",
+     "121-150%": "$318,747-$398,432",
+     "151%+": "$398,433+"
+    }
+   },
+   "multifamily_vacancy_pct": 4.4,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 329000,
+   "rental_gap_to_renter_hh_pct": 17.7,
+   "forsale_gap_to_owner_hh_pct": 13.5,
+   "total_gap_to_total_hh_pct": 15.0,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Franklin": {
+   "rental_gap": 766,
+   "forsale_gap": 4844,
+   "total_gap": 5610,
+   "households_2024": 29644,
+   "households_2029": 32757,
+   "hh_growth_pct": 10.5,
+   "rental_gap_by_ami": {
+    "<=30%": 230,
+    "31-50%": 68,
+    "51-80%": 195,
+    "81-120%": 170,
+    "121-150%": 85,
+    "151%+": 18
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 27,
+     "31-50%": 411,
+     "51-80%": 1435,
+     "81-120%": 1923,
+     "121-150%": 891,
+     "151%+": 157
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$118,995",
+     "31-50%": "$118,996-$198,324",
+     "51-80%": "$198,325-$317,319",
+     "81-120%": "$317,320-$475,978",
+     "121-150%": "$475,979-$594,973",
+     "151%+": "$594,974+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 0.6,
+   "median_list_price": 408000,
+   "rental_gap_to_renter_hh_pct": 13.1,
+   "forsale_gap_to_owner_hh_pct": 18.0,
+   "total_gap_to_total_hh_pct": 17.1,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Gaston": {
+   "rental_gap": 5317,
+   "forsale_gap": 10042,
+   "total_gap": 15359,
+   "households_2024": 96048,
+   "households_2029": 100979,
+   "hh_growth_pct": 5.1,
+   "rental_gap_by_ami": {
+    "<=30%": 1789,
+    "31-50%": 510,
+    "51-80%": 898,
+    "81-120%": 1237,
+    "121-150%": 699,
+    "151%+": 184
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 200,
+     "51-80%": 1826,
+     "81-120%": 2878,
+     "121-150%": 3864,
+     "151%+": 1274
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$103,135",
+     "31-50%": "$103,136-$171,892",
+     "51-80%": "$171,893-$275,027",
+     "81-120%": "$275,028-$412,541",
+     "121-150%": "$412,542-$515,676",
+     "151%+": "$515,677+"
+    }
+   },
+   "multifamily_vacancy_pct": 2.1,
+   "forsale_availability_pct": 0.8,
+   "median_list_price": 329900,
+   "rental_gap_to_renter_hh_pct": 17.5,
+   "forsale_gap_to_owner_hh_pct": 14.2,
+   "total_gap_to_total_hh_pct": 15.2,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Gates": {
+   "rental_gap": 70,
+   "forsale_gap": 294,
+   "total_gap": 364,
+   "households_2024": 4173,
+   "households_2029": 4152,
+   "hh_growth_pct": -0.5,
+   "rental_gap_by_ami": {
+    "<=30%": 14,
+    "31-50%": 2,
+    "51-80%": 10,
+    "81-120%": 28,
+    "121-150%": 12,
+    "151%+": 4
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 10,
+     "81-120%": 46,
+     "121-150%": 173,
+     "151%+": 65
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$71,805",
+     "31-50%": "$71,806-$119,676",
+     "51-80%": "$119,677-$191,481",
+     "81-120%": "$191,482-$287,222",
+     "121-150%": "$287,223-$359,027",
+     "151%+": "$359,028+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 0.3,
+   "median_list_price": 276950,
+   "rental_gap_to_renter_hh_pct": 9.7,
+   "forsale_gap_to_owner_hh_pct": 8.6,
+   "total_gap_to_total_hh_pct": 8.8,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Graham": {
+   "rental_gap": 41,
+   "forsale_gap": 208,
+   "total_gap": 249,
+   "households_2024": 3293,
+   "households_2029": 3301,
+   "hh_growth_pct": 0.2,
+   "rental_gap_by_ami": {
+    "<=30%": 5,
+    "31-50%": 2,
+    "51-80%": 6,
+    "81-120%": 11,
+    "121-150%": 11,
+    "151%+": 6
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 9,
+     "81-120%": 24,
+     "121-150%": 125,
+     "151%+": 50
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$71,319",
+     "31-50%": "$71,320-$118,865",
+     "51-80%": "$118,866-$190,184",
+     "81-120%": "$190,185-$285,276",
+     "121-150%": "$285,277-$356,595",
+     "151%+": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 2.4,
+   "forsale_availability_pct": 2.2,
+   "median_list_price": 399000,
+   "rental_gap_to_renter_hh_pct": 7.7,
+   "forsale_gap_to_owner_hh_pct": 7.5,
+   "total_gap_to_total_hh_pct": 7.5,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Granville": {
+   "rental_gap": 1240,
+   "forsale_gap": 2644,
+   "total_gap": 3884,
+   "households_2024": 23463,
+   "households_2029": 24405,
+   "hh_growth_pct": 4.0,
+   "rental_gap_by_ami": {
+    "<=30%": 303,
+    "31-50%": 126,
+    "51-80%": 237,
+    "81-120%": 272,
+    "121-150%": 224,
+    "151%+": 78
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 138,
+     "81-120%": 527,
+     "121-150%": 1450,
+     "151%+": 529
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$84,259",
+     "31-50%": "$84,260-$140,432",
+     "51-80%": "$140,433-$224,692",
+     "81-120%": "$224,693-$337,038",
+     "121-150%": "$337,039-$421,297",
+     "151%+": "$421,298+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 0.4,
+   "median_list_price": 406000,
+   "rental_gap_to_renter_hh_pct": 21.8,
+   "forsale_gap_to_owner_hh_pct": 14.1,
+   "total_gap_to_total_hh_pct": 15.9,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Greene": {
+   "rental_gap": 341,
+   "forsale_gap": 455,
+   "total_gap": 796,
+   "households_2024": 6920,
+   "households_2029": 6924,
+   "hh_growth_pct": 0.1,
+   "rental_gap_by_ami": {
+    "<=30%": 176,
+    "31-50%": 24,
+    "51-80%": 31,
+    "81-120%": 56,
+    "121-150%": 38,
+    "151%+": 16
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 26,
+     "81-120%": 86,
+     "121-150%": 249,
+     "151%+": 94
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$71,319",
+     "31-50%": "$71,320-$118,865",
+     "51-80%": "$118,866-$190,184",
+     "81-120%": "$190,185-$285,276",
+     "121-150%": "$285,277-$356,595",
+     "151%+": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 0.2,
+   "median_list_price": 179950,
+   "rental_gap_to_renter_hh_pct": 17.7,
+   "forsale_gap_to_owner_hh_pct": 9.1,
+   "total_gap_to_total_hh_pct": 11.5,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Guilford": {
+   "rental_gap": 14715,
+   "forsale_gap": 18495,
+   "total_gap": 33210,
+   "households_2024": 222855,
+   "households_2029": 228887,
+   "hh_growth_pct": 2.7,
+   "rental_gap_by_ami": {
+    "<=30%": 3257,
+    "31-50%": 2664,
+    "51-80%": 3232,
+    "81-120%": 1830,
+    "121-150%": 2980,
+    "151%+": 752
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 23,
+     "31-50%": 29,
+     "51-80%": 1814,
+     "81-120%": 2491,
+     "121-150%": 7719,
+     "151%+": 6419
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$80,757",
+     "31-50%": "$80,758-$134,595",
+     "51-80%": "$134,596-$215,351",
+     "81-120%": "$215,352-$323,027",
+     "121-150%": "$323,028-$403,784",
+     "151%+": "$403,785+"
+    }
+   },
+   "multifamily_vacancy_pct": 5.4,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 344900,
+   "rental_gap_to_renter_hh_pct": 16.5,
+   "forsale_gap_to_owner_hh_pct": 13.2,
+   "total_gap_to_total_hh_pct": 14.5,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Halifax": {
+   "rental_gap": 819,
+   "forsale_gap": 1242,
+   "total_gap": 2061,
+   "households_2024": 20289,
+   "households_2029": 20000,
+   "hh_growth_pct": -1.4,
+   "rental_gap_by_ami": {
+    "<=30%": 537,
+    "31-50%": 20,
+    "51-80%": 56,
+    "81-120%": 126,
+    "121-150%": 64,
+    "151%+": 16
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 20,
+     "31-50%": 0,
+     "51-80%": 34,
+     "81-120%": 149,
+     "121-150%": 747,
+     "151%+": 292
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$71,319",
+     "31-50%": "$71,320-$118,865",
+     "51-80%": "$118,866-$190,184",
+     "81-120%": "$190,185-$285,276",
+     "121-150%": "$285,277-$356,595",
+     "151%+": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.6,
+   "forsale_availability_pct": 0.6,
+   "median_list_price": 189900,
+   "rental_gap_to_renter_hh_pct": 13.0,
+   "forsale_gap_to_owner_hh_pct": 9.1,
+   "total_gap_to_total_hh_pct": 10.3,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Harnett": {
+   "rental_gap": 3125,
+   "forsale_gap": 4236,
+   "total_gap": 7361,
+   "households_2024": 51461,
+   "households_2029": 54732,
+   "hh_growth_pct": 6.4,
+   "rental_gap_by_ami": {
+    "<=30%": 483,
+    "31-50%": 395,
+    "51-80%": 712,
+    "81-120%": 630,
+    "121-150%": 742,
+    "151%+": 163
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 281,
+     "31-50%": 343,
+     "51-80%": 574,
+     "81-120%": 580,
+     "121-150%": 1351,
+     "151%+": 1107
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$79,686",
+     "31-50%": "$79,687-$132,811",
+     "51-80%": "$132,812-$212,497",
+     "81-120%": "$212,498-$318,746",
+     "121-150%": "$318,747-$398,432",
+     "151%+": "$398,433+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.5,
+   "forsale_availability_pct": 0.9,
+   "median_list_price": 337450,
+   "rental_gap_to_renter_hh_pct": 20.5,
+   "forsale_gap_to_owner_hh_pct": 10.7,
+   "total_gap_to_total_hh_pct": 13.4,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Haywood": {
+   "rental_gap": 795,
+   "forsale_gap": 2571,
+   "total_gap": 3366,
+   "households_2024": 27825,
+   "households_2029": 28252,
+   "hh_growth_pct": 1.5,
+   "rental_gap_by_ami": {
+    "<=30%": 235,
+    "31-50%": 62,
+    "51-80%": 88,
+    "81-120%": 167,
+    "121-150%": 186,
+    "151%+": 57
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 2,
+     "51-80%": 155,
+     "81-120%": 518,
+     "121-150%": 1387,
+     "151%+": 509
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$80,270",
+     "31-50%": "$80,271-$133,784",
+     "51-80%": "$133,785-$214,054",
+     "81-120%": "$214,055-$321,081",
+     "121-150%": "$321,082-$401,351",
+     "151%+": "$401,352+"
+    }
+   },
+   "multifamily_vacancy_pct": 2.6,
+   "forsale_availability_pct": 1.2,
+   "median_list_price": 499900,
+   "rental_gap_to_renter_hh_pct": 13.0,
+   "forsale_gap_to_owner_hh_pct": 11.6,
+   "total_gap_to_total_hh_pct": 11.9,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Henderson": {
+   "rental_gap": 1250,
+   "forsale_gap": 5813,
+   "total_gap": 7063,
+   "households_2024": 51173,
+   "households_2029": 52687,
+   "hh_growth_pct": 3.0,
+   "rental_gap_by_ami": {
+    "<=30%": 207,
+    "31-50%": 89,
+    "51-80%": 180,
+    "81-120%": 399,
+    "121-150%": 286,
+    "151%+": 89
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 41,
+     "51-80%": 681,
+     "81-120%": 1450,
+     "121-150%": 2684,
+     "151%+": 957
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$90,973",
+     "31-50%": "$90,974-$151,622",
+     "51-80%": "$151,623-$242,595",
+     "81-120%": "$242,596-$363,892",
+     "121-150%": "$363,893-$454,865",
+     "151%+": "$454,866+"
+    }
+   },
+   "multifamily_vacancy_pct": 2.4,
+   "forsale_availability_pct": 0.9,
+   "median_list_price": 528250,
+   "rental_gap_to_renter_hh_pct": 10.5,
+   "forsale_gap_to_owner_hh_pct": 14.2,
+   "total_gap_to_total_hh_pct": 13.4,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Hertford": {
+   "rental_gap": 344,
+   "forsale_gap": 564,
+   "total_gap": 908,
+   "households_2024": 8082,
+   "households_2029": 7875,
+   "hh_growth_pct": -2.6,
+   "rental_gap_by_ami": {
+    "<=30%": 174,
+    "31-50%": 32,
+    "51-80%": 43,
+    "81-120%": 58,
+    "121-150%": 27,
+    "151%+": 10
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 8,
+     "31-50%": 0,
+     "51-80%": 29,
+     "81-120%": 100,
+     "121-150%": 310,
+     "151%+": 117
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$71,319",
+     "31-50%": "$71,320-$118,865",
+     "51-80%": "$118,866-$190,184",
+     "81-120%": "$190,185-$285,276",
+     "121-150%": "$285,277-$356,595",
+     "151%+": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 0.4,
+   "median_list_price": 225000,
+   "rental_gap_to_renter_hh_pct": 13.8,
+   "forsale_gap_to_owner_hh_pct": 10.5,
+   "total_gap_to_total_hh_pct": 11.5,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Hoke": {
+   "rental_gap": 1062,
+   "forsale_gap": 2252,
+   "total_gap": 3314,
+   "households_2024": 19724,
+   "households_2029": 20792,
+   "hh_growth_pct": 5.4,
+   "rental_gap_by_ami": {
+    "<=30%": 235,
+    "31-50%": 192,
+    "51-80%": 280,
+    "81-120%": 176,
+    "121-150%": 144,
+    "151%+": 35
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 106,
+     "31-50%": 130,
+     "51-80%": 333,
+     "81-120%": 351,
+     "121-150%": 740,
+     "151%+": 592
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$72,973",
+     "31-50%": "$72,974-$121,622",
+     "51-80%": "$121,623-$194,595",
+     "81-120%": "$194,596-$291,892",
+     "121-150%": "$291,893-$364,865",
+     "151%+": "$364,866+"
+    }
+   },
+   "multifamily_vacancy_pct": 10.6,
+   "forsale_availability_pct": 0.6,
+   "median_list_price": 312500,
+   "rental_gap_to_renter_hh_pct": 18.7,
+   "forsale_gap_to_owner_hh_pct": 14.9,
+   "total_gap_to_total_hh_pct": 15.9,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Hyde": {
+   "rental_gap": 43,
+   "forsale_gap": 94,
+   "total_gap": 137,
+   "households_2024": 1754,
+   "households_2029": 1703,
+   "hh_growth_pct": -2.9,
+   "rental_gap_by_ami": {
+    "<=30%": 21,
+    "31-50%": 12,
+    "51-80%": 4,
+    "81-120%": 6,
+    "121-150%": 0,
+    "151%+": 0
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 5,
+     "31-50%": 1,
+     "51-80%": 21,
+     "81-120%": 35,
+     "121-150%": 25,
+     "151%+": 7
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$71,319",
+     "31-50%": "$71,320-$118,865",
+     "51-80%": "$118,866-$190,184",
+     "81-120%": "$190,185-$285,276",
+     "121-150%": "$285,277-$356,595",
+     "151%+": "$356,596+"
+    }
+   },
+   "multifamily_vacancy_pct": null,
+   "forsale_availability_pct": 1.8,
+   "median_list_price": 604500,
+   "rental_gap_to_renter_hh_pct": 11.8,
+   "forsale_gap_to_owner_hh_pct": 7.0,
+   "total_gap_to_total_hh_pct": 8.0,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Iredell": {
+   "rental_gap": 4726,
+   "forsale_gap": 8000,
+   "total_gap": 12726,
+   "households_2024": 80233,
+   "households_2029": 87606,
+   "hh_growth_pct": 9.2,
+   "rental_gap_by_ami": {
+    "<=30%": 795,
+    "31-50%": 1147,
+    "51-80%": 499,
+    "81-120%": 1001,
+    "121-150%": 578,
+    "151%+": 706
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 490,
+     "31-50%": 146,
+     "51-80%": 831,
+     "81-120%": 3344,
+     "121-150%": 574,
+     "151%+": 2615
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$88,249",
+     "31-50%": "$88,250-$147,081",
+     "51-80%": "$147,082-$235,330",
+     "81-120%": "$235,331-$352,995",
+     "121-150%": "$352,996-$441,243",
+     "151%+": "$441,244+"
+    }
+   },
+   "multifamily_vacancy_pct": 5.9,
+   "forsale_availability_pct": 0.8,
+   "median_list_price": 449900,
+   "rental_gap_to_renter_hh_pct": 19.2,
+   "forsale_gap_to_owner_hh_pct": 12.7,
+   "total_gap_to_total_hh_pct": 14.5,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Jackson": {
+   "rental_gap": 1111,
+   "forsale_gap": 1460,
+   "total_gap": 2571,
+   "households_2024": 17206,
+   "households_2029": 17470,
+   "hh_growth_pct": 1.5,
+   "rental_gap_by_ami": {
+    "<=30%": 579,
+    "31-50%": 116,
+    "51-80%": 126,
+    "81-120%": 129,
+    "121-150%": 114,
+    "151%+": 47
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 0,
+     "31-50%": 0,
+     "51-80%": 38,
+     "81-120%": 201,
+     "121-150%": 248,
+     "151%+": 973
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$73,654",
+     "31-50%": "$73,655-$122,757",
+     "51-80%": "$122,758-$196,411",
+     "81-120%": "$196,412-$294,616",
+     "121-150%": "$294,617-$368,270",
+     "151%+": "$368,271+"
+    }
+   },
+   "multifamily_vacancy_pct": 0.0,
+   "forsale_availability_pct": 2.5,
+   "median_list_price": 789000,
+   "rental_gap_to_renter_hh_pct": 20.8,
+   "forsale_gap_to_owner_hh_pct": 12.0,
+   "total_gap_to_total_hh_pct": 14.7,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  },
+  "Johnston": {
+   "rental_gap": 3208,
+   "forsale_gap": 11845,
+   "total_gap": 15053,
+   "households_2024": 90198,
+   "households_2029": 101187,
+   "hh_growth_pct": 12.2,
+   "rental_gap_by_ami": {
+    "<=30%": 1103,
+    "31-50%": 902,
+    "51-80%": 745,
+    "81-120%": 286,
+    "121-150%": 102,
+    "151%+": 70
+   },
+   "forsale_gap_by_price": {
+    "by_ami": {
+     "<=30%": 756,
+     "31-50%": 924,
+     "51-80%": 2727,
+     "81-120%": 3172,
+     "121-150%": 2922,
+     "151%+": 1344
+    },
+    "price_range_for_ami_band": {
+     "<=30%": "≤$118,995",
+     "31-50%": "$118,996-$198,324",
+     "51-80%": "$198,325-$317,319",
+     "81-120%": "$317,320-$475,978",
+     "121-150%": "$475,979-$594,973",
+     "151%+": "$594,974+"
+    }
+   },
+   "multifamily_vacancy_pct": 12.1,
+   "forsale_availability_pct": 0.5,
+   "median_list_price": 379900,
+   "rental_gap_to_renter_hh_pct": 15.1,
+   "forsale_gap_to_owner_hh_pct": 14.8,
+   "total_gap_to_total_hh_pct": 14.9,
+   "source_url": "https://www.hendersonvillenc.gov/sites/default/files/uploads/government/StrategicHousing/bowen_2024_housing_supply_gap_analysis.pdf"
+  }
+ }
+}

@@ -1,0 +1,912 @@
+{
+ "sources": {
+  "rural_class": "https://www.ncruralcenter.org/how-we-define-rural/ (2020 Census basis; counts 78 rural / 16 regional city-suburban / 6 urban). County-level list is only in an embedded Tableau map that could not be read; only 4 counties are filled, from statements in https://www.ncruralcenter.org/2021/11/a-message-from-patrick-about-the-2020-census/ and https://www.ncruralcenter.org/2026/08/research-blog-the-changing-rural-landscape/. All others null.",
+  "tier": "https://www.commerce.nc.gov/grants-incentives/county-distress-rankings-tiers and ranking memo https://www.commerce.nc.gov/report-county-tiers-ranking-memo-current-year/download?attachment - 2026 designations (published 2025-11-26). tier_rank = economic distress rank, 1 = most distressed; ties exist in the source.",
+  "cog": "https://eccog.org/nc-regional-councils/ (member-COG listing of the 16 NC regional councils; ncarcog.org itself was not reachable)",
+  "osoh": "https://carolinaacross100.unc.edu/program5/ (14 teams, 22 counties; Henderson is in two teams)",
+  "prosperity_zone": "https://www.commerce.nc.gov/about-us/nc-prosperity-zones (matches G.S. 143B-28.1)"
+ },
+ "tier_year": 2026,
+ "counties": {
+  "Alamance": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 73,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Alexander": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 39,
+   "cog": "Western Piedmont (Region E)",
+   "osoh_team": true,
+   "osoh_team_name": "WPCOG Home BASE (Building Access for Strategic Expansion)",
+   "prosperity_zone": "Northwest"
+  },
+  "Alleghany": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 53,
+   "cog": "High Country (Region D)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northwest"
+  },
+  "Anson": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 13,
+   "cog": "Centralina (Region F)",
+   "osoh_team": true,
+   "osoh_team_name": "Building Anson",
+   "prosperity_zone": "Southwest"
+  },
+  "Ashe": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 59,
+   "cog": "High Country (Region D)",
+   "osoh_team": true,
+   "osoh_team_name": "High Country Thriving: A Home for Everyone",
+   "prosperity_zone": "Northwest"
+  },
+  "Avery": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 48,
+   "cog": "High Country (Region D)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northwest"
+  },
+  "Beaufort": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 43,
+   "cog": "Mid-East Commission (Region Q)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Bertie": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 3,
+   "cog": "Mid-East Commission (Region Q)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Bladen": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 15,
+   "cog": "Lumber River (Region N)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Brunswick": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 85,
+   "cog": "Cape Fear (Region O)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Buncombe": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 53,
+   "cog": "Land of Sky (Region B)",
+   "osoh_team": true,
+   "osoh_team_name": "Land of Sky Impact Alliance",
+   "prosperity_zone": "Western"
+  },
+  "Burke": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 29,
+   "cog": "Western Piedmont (Region E)",
+   "osoh_team": true,
+   "osoh_team_name": "WPCOG Home BASE (Building Access for Strategic Expansion)",
+   "prosperity_zone": "Northwest"
+  },
+  "Cabarrus": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 83,
+   "cog": "Centralina (Region F)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southwest"
+  },
+  "Caldwell": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 35,
+   "cog": "Western Piedmont (Region E)",
+   "osoh_team": true,
+   "osoh_team_name": "WPCOG Home BASE (Building Access for Strategic Expansion)",
+   "prosperity_zone": "Northwest"
+  },
+  "Camden": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 90,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Carteret": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 88,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": true,
+   "osoh_team_name": "Crystal Coast Housing Collaborative",
+   "prosperity_zone": "Southeast"
+  },
+  "Caswell": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 28,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Catawba": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 76,
+   "cog": "Western Piedmont (Region E)",
+   "osoh_team": true,
+   "osoh_team_name": "WPCOG Home BASE (Building Access for Strategic Expansion)",
+   "prosperity_zone": "Northwest"
+  },
+  "Chatham": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 99,
+   "cog": "Central Pines (Triangle J) (Region J)",
+   "osoh_team": true,
+   "osoh_team_name": "Chatham County HEAL (Housing Empowerment and Action Lab)",
+   "prosperity_zone": "North Central"
+  },
+  "Cherokee": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 59,
+   "cog": "Southwestern Commission (Region A)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Western"
+  },
+  "Chowan": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 57,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Clay": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 77,
+   "cog": "Southwestern Commission (Region A)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Western"
+  },
+  "Cleveland": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 38,
+   "cog": "Foothills Regional Commission (Region C)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southwest"
+  },
+  "Columbus": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 10,
+   "cog": "Cape Fear (Region O)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Craven": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 52,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Cumberland": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 16,
+   "cog": "Mid-Carolina (Region M)",
+   "osoh_team": true,
+   "osoh_team_name": "Sandhills Affordable Housing Collective",
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Currituck": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 100,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Dare": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 70,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": true,
+   "osoh_team_name": "Team OBX",
+   "prosperity_zone": "Northeast"
+  },
+  "Davidson": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 63,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Davie": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 82,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Duplin": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 50,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Durham": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 91,
+   "cog": "Central Pines (Triangle J) (Region J)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Edgecombe": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 1,
+   "cog": "Upper Coastal Plain (Region L)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Forsyth": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 59,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Franklin": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 80,
+   "cog": "Kerr-Tar (Region K)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Gaston": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 69,
+   "cog": "Centralina (Region F)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southwest"
+  },
+  "Gates": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 41,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Graham": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 47,
+   "cog": "Southwestern Commission (Region A)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Western"
+  },
+  "Granville": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 49,
+   "cog": "Kerr-Tar (Region K)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Greene": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 27,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Guilford": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 44,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Halifax": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 2,
+   "cog": "Upper Coastal Plain (Region L)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Harnett": {
+   "rural_class": "rural",
+   "tier": 2,
+   "tier_rank": 67,
+   "cog": "Mid-Carolina (Region M)",
+   "osoh_team": true,
+   "osoh_team_name": "Sandhills Affordable Housing Collective",
+   "prosperity_zone": "North Central"
+  },
+  "Haywood": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 56,
+   "cog": "Southwestern Commission (Region A)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Western"
+  },
+  "Henderson": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 78,
+   "cog": "Land of Sky (Region B)",
+   "osoh_team": true,
+   "osoh_team_name": "Land of Sky Impact Alliance / Hendo4Housing",
+   "prosperity_zone": "Western"
+  },
+  "Hertford": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 9,
+   "cog": "Mid-East Commission (Region Q)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Hoke": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 33,
+   "cog": "Lumber River (Region N)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Hyde": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 19,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Iredell": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 94,
+   "cog": "Centralina (Region F)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southwest"
+  },
+  "Jackson": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 79,
+   "cog": "Southwestern Commission (Region A)",
+   "osoh_team": true,
+   "osoh_team_name": "A Path to Home in Jackson",
+   "prosperity_zone": "Western"
+  },
+  "Johnston": {
+   "rural_class": "regional_city_suburban",
+   "tier": 3,
+   "tier_rank": 92,
+   "cog": "Central Pines (Triangle J) (Region J)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Jones": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 34,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": true,
+   "osoh_team_name": "Jones County 4 Life (JC4L)",
+   "prosperity_zone": "Southeast"
+  },
+  "Lee": {
+   "rural_class": "rural",
+   "tier": 2,
+   "tier_rank": 75,
+   "cog": "Central Pines (Triangle J) (Region J)",
+   "osoh_team": true,
+   "osoh_team_name": "The Heart of Carolina",
+   "prosperity_zone": "North Central"
+  },
+  "Lenoir": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 18,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Lincoln": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 97,
+   "cog": "Centralina (Region F)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southwest"
+  },
+  "Macon": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 81,
+   "cog": "Southwestern Commission (Region A)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Western"
+  },
+  "Madison": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 37,
+   "cog": "Land of Sky (Region B)",
+   "osoh_team": true,
+   "osoh_team_name": "Land of Sky Impact Alliance",
+   "prosperity_zone": "Western"
+  },
+  "Martin": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 12,
+   "cog": "Mid-East Commission (Region Q)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "McDowell": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 23,
+   "cog": "Foothills Regional Commission (Region C)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northwest"
+  },
+  "Mecklenburg": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 87,
+   "cog": "Centralina (Region F)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southwest"
+  },
+  "Mitchell": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 21,
+   "cog": "High Country (Region D)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northwest"
+  },
+  "Montgomery": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 44,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Moore": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 89,
+   "cog": "Central Pines (Triangle J) (Region J)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Nash": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 29,
+   "cog": "Upper Coastal Plain (Region L)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "New Hanover": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 93,
+   "cog": "Cape Fear (Region O)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Northampton": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 11,
+   "cog": "Upper Coastal Plain (Region L)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Onslow": {
+   "rural_class": "regional_city_suburban",
+   "tier": 2,
+   "tier_rank": 59,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Orange": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 86,
+   "cog": "Central Pines (Triangle J) (Region J)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Pamlico": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 74,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Pasquotank": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 36,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Pender": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 94,
+   "cog": "Cape Fear (Region O)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Perquimans": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 58,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Person": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 64,
+   "cog": "Kerr-Tar (Region K)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Pitt": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 32,
+   "cog": "Mid-East Commission (Region Q)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Polk": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 65,
+   "cog": "Foothills Regional Commission (Region C)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Western"
+  },
+  "Randolph": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 51,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Richmond": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 7,
+   "cog": "Lumber River (Region N)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Robeson": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 7,
+   "cog": "Lumber River (Region N)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Rockingham": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 29,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Rowan": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 71,
+   "cog": "Centralina (Region F)",
+   "osoh_team": true,
+   "osoh_team_name": "Roofs Over Rowan",
+   "prosperity_zone": "Southwest"
+  },
+  "Rutherford": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 24,
+   "cog": "Foothills Regional Commission (Region C)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Western"
+  },
+  "Sampson": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 25,
+   "cog": "Mid-Carolina (Region M)",
+   "osoh_team": true,
+   "osoh_team_name": "Sandhills Affordable Housing Collective",
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Scotland": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 4,
+   "cog": "Lumber River (Region N)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Sandhills (South Central)"
+  },
+  "Stanly": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 84,
+   "cog": "Centralina (Region F)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southwest"
+  },
+  "Stokes": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 55,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Surry": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 46,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Swain": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 42,
+   "cog": "Southwestern Commission (Region A)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Western"
+  },
+  "Transylvania": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 72,
+   "cog": "Land of Sky (Region B)",
+   "osoh_team": true,
+   "osoh_team_name": "Land of Sky Impact Alliance",
+   "prosperity_zone": "Western"
+  },
+  "Tyrrell": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 17,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Union": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 98,
+   "cog": "Centralina (Region F)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southwest"
+  },
+  "Vance": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 5,
+   "cog": "Kerr-Tar (Region K)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Wake": {
+   "rural_class": null,
+   "tier": 3,
+   "tier_rank": 96,
+   "cog": "Central Pines (Triangle J) (Region J)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Warren": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 26,
+   "cog": "Kerr-Tar (Region K)",
+   "osoh_team": true,
+   "osoh_team_name": "Warren County Housing Coalition",
+   "prosperity_zone": "North Central"
+  },
+  "Washington": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 6,
+   "cog": "Albemarle Commission (Region R)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northeast"
+  },
+  "Watauga": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 66,
+   "cog": "High Country (Region D)",
+   "osoh_team": true,
+   "osoh_team_name": "High Country Thriving: A Home for Everyone",
+   "prosperity_zone": "Northwest"
+  },
+  "Wayne": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 40,
+   "cog": "Eastern Carolina (Region P)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Southeast"
+  },
+  "Wilkes": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 20,
+   "cog": "High Country (Region D)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northwest"
+  },
+  "Wilson": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 14,
+   "cog": "Upper Coastal Plain (Region L)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "North Central"
+  },
+  "Yadkin": {
+   "rural_class": null,
+   "tier": 2,
+   "tier_rank": 68,
+   "cog": "Piedmont Triad (Region G)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Piedmont-Triad (Central)"
+  },
+  "Yancey": {
+   "rural_class": null,
+   "tier": 1,
+   "tier_rank": 22,
+   "cog": "High Country (Region D)",
+   "osoh_team": false,
+   "osoh_team_name": null,
+   "prosperity_zone": "Northwest"
+  }
+ }
+}
