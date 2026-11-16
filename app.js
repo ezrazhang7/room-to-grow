@@ -249,8 +249,11 @@
     const rows = [c, ...peers.slice().sort((a, b) => b.hh_2024 - a.hh_2024)];
     $('peers').tBodies[0].replaceChildren(...rows.map((r) => {
       const tr = el('tr', r.fips === c.fips ? 'self' : null);
-      [r.county, num(r.hh_2024), num(r.total_gap), one(r.gap_pct_hh), signed(r.hh_growth_pct), pct0(r.pace_pct), usd(r.median_home_value), pct(r.rent_burden_pct)].forEach((v) => tr.append(el('td', null, v)));
-      tr.onclick = () => select(r.fips);
+      const name = el('td');
+      if (r.fips === c.fips) name.textContent = r.county;
+      else { const b = el('button', 'linkish', r.county); b.type = 'button'; b.onclick = () => select(r.fips); name.append(b); }
+      tr.append(name);
+      [num(r.hh_2024), num(r.total_gap), one(r.gap_pct_hh), signed(r.hh_growth_pct), pct0(r.pace_pct), usd(r.median_home_value), pct(r.rent_burden_pct)].forEach((v) => tr.append(el('td', null, v)));
       return tr;
     }));
   }
@@ -275,7 +278,8 @@
     const st = S.strategies.filter((x) => barriers.includes(x.barrier) && (!place || String(x.applies_to || '').split(',').includes(place))).sort((a, b) => rank(a) - rank(b));
     const cs = S.cases.filter((x) => barriers.includes(x.barrier) && (!place || x.setting === place))
       .sort((a, b) => (c ? (b.county === c.county) - (a.county === c.county) : 0) || rank(a) - rank(b));
-    const none = () => [el('p', 'empty', 'Nothing in the library matches. Try "All" or "Any".')];
+    const none = () => [el('p', 'empty', 'Nothing in the library matches. Try “All” or “Any”.')];
+    const mixed = new Set(st.map((x) => x.barrier)).size > 1;
     const capped = (id, cards) => {
       if (S.showAll[id] || cards.length <= FIRST) return cards;
       const btn = el('button', 'ghost show-all', 'Show all ' + cards.length); btn.type = 'button';
@@ -286,7 +290,8 @@
       const card = el('article', 'card item');
       const eg = el('p', 'eg');
       eg.append(el('b', null, [x.example_place, x.example_county && x.example_county !== 'Statewide' ? x.example_county + ' County' : x.example_county].filter(Boolean).join(', ') + ': '), (x.example_summary || '') + ' ', link(x.source_url, 'Source'));
-      card.append(el('span', 'kind', BARRIER[x.barrier] || x.barrier), el('h4', null, x.name), el('p', null, x.what_it_is || ''), eg, fold('First step', el('p', null, x.how_to_start || '')));
+      if (mixed) card.append(el('span', 'kind', BARRIER[x.barrier] || x.barrier));
+      card.append(el('h4', null, x.name), el('p', null, x.what_it_is || ''), eg, fold('First step', el('p', null, x.how_to_start || '')));
       return card;
     })) : none()));
     $('cases').replaceChildren(...(cs.length ? capped('cases', cs.map((x) => {
@@ -335,7 +340,7 @@
   let wide = innerWidth;
   addEventListener('resize', () => { if (Math.abs(innerWidth - wide) > 20) { wide = innerWidth; if (row()) drawPermits(row()); } });
 
-  Promise.all(['counties', 'strategies', 'cases'].map((n) => fetch('data/' + n + '.json').then((r) => { if (!r.ok) throw new Error(n); return r.json(); })))
+  Promise.all(['counties', 'strategies', 'cases'].map((n) => fetch('data/' + n + '.json?v=3').then((r) => { if (!r.ok) throw new Error(n); return r.json(); })))
     .then(([c, s, k]) => {
       S.counties = c.rows.map((r) => ({ ...r, fips: String(r.fips) })); S.strategies = s.rows; S.cases = k.rows;
       $('county-list').replaceChildren(...S.counties.map((r) => { const o = el('option'); o.value = r.county; return o; }));
