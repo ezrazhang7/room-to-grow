@@ -365,7 +365,7 @@
   let wide = innerWidth;
   addEventListener('resize', () => { if (Math.abs(innerWidth - wide) > 20) { wide = innerWidth; if (row()) drawPermits(row()); } });
 
-  Promise.all(['counties', 'strategies', 'cases'].map((n) => fetch('data/' + n + '.json?v=4').then((r) => { if (!r.ok) throw new Error(n); return r.json(); })))
+  Promise.all(['counties', 'strategies', 'cases'].map((n) => fetch('data/' + n + '.json?v=5').then((r) => { if (!r.ok) throw new Error(n); return r.json(); })))
     .then(([c, s, k]) => {
       S.counties = c.rows.map((r) => ({ ...r, fips: String(r.fips) })); S.strategies = s.rows; S.cases = k.rows;
       $('county-list').replaceChildren(...S.counties.map((r) => { const o = el('option'); o.value = r.county; return o; }));

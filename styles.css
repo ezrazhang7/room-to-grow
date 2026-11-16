@@ -9,22 +9,8 @@
   --display: "Source Serif 4", Georgia, "Times New Roman", serif;
   --body: "Libre Franklin", "Franklin Gothic Medium", system-ui, -apple-system, sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #14161a; --surface: #14161a; --ink: #e8e8e6; --head: #d8e4f3; --muted: #9c9c9a;
-    --line: #32353a; --rule: #d8e4f3; --gold: #d9a63a;
-    --accent: #6fb4e8; --accent-2: #e07ab8; --accent-3: #57c2b4; --warn: #e07ab8;
-    --r1: #222c3a; --r2: #28456a; --r3: #35699e; --r4: #5e97cc; --r5: #a9d2f3; --r0: #26282c;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #14161a; --surface: #14161a; --ink: #e8e8e6; --head: #d8e4f3; --muted: #9c9c9a;
-  --line: #32353a; --rule: #d8e4f3; --gold: #d9a63a;
-  --accent: #6fb4e8; --accent-2: #e07ab8; --accent-3: #57c2b4; --warn: #e07ab8;
-  --r1: #222c3a; --r2: #28456a; --r3: #35699e; --r4: #5e97cc; --r5: #a9d2f3; --r0: #26282c;
-  color-scheme: dark;
-}
+/* Single light theme by design: the site reads as a printed policy brief in any OS color scheme. */
+:root { color-scheme: light; }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55; }
